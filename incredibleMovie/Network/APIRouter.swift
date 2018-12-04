@@ -11,11 +11,14 @@ import Alamofire
 
 enum APIRouter: URLRequestConvertible {
     case popularMovies(page: Int)
+    case fetchImage(path: String)
     
     // MARK: - HTTPMethod
     var method: HTTPMethod {
         switch self {
         case .popularMovies:
+            return .get
+        case .fetchImage:
             return .get
         }
     }
@@ -25,6 +28,8 @@ enum APIRouter: URLRequestConvertible {
         switch self {
         case .popularMovies(let page):
             return "/tv/popular?\(APIConstants.APIParameterKey.apiKey)=\(APIConstants.Server.apiKey)&\(APIConstants.APIParameterKey.page)=\(page)"
+        case .fetchImage(let path):
+            return "/t/p/original/\(path)"
         }
     }
     
@@ -32,6 +37,8 @@ enum APIRouter: URLRequestConvertible {
     private var parameters: Parameters? {
         switch self {
         case .popularMovies:
+            return nil
+        case .fetchImage:
             return nil
         }
     }

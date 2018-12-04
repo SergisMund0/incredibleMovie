@@ -8,6 +8,15 @@
 
 import Foundation
 
+struct DashboardInjectionModel {
+    let viewDataModel: [MovieCellViewModel]
+}
+
+struct MovieCellViewModel {
+    let title: String
+    let backgroundImageURL: String
+}
+
 struct PopularMovies: Codable {
     let page, totalResults, totalPages: Int
     let results: [Result]
@@ -29,10 +38,11 @@ struct Result: Codable {
     let voteCount: Int
     let firstAirDate: String
     let backdropPath: String?
-    let originalLanguage: OriginalLanguage
+    let originalLanguage: String
     let id: Int
     let voteAverage: Double
-    let overview, posterPath: String
+    let overview: String?
+    let posterPath: String?
     
     enum CodingKeys: String, CodingKey {
         case originalName = "original_name"
@@ -48,10 +58,4 @@ struct Result: Codable {
         case overview
         case posterPath = "poster_path"
     }
-}
-
-enum OriginalLanguage: String, Codable {
-    case bn = "bn"
-    case en = "en"
-    case ja = "ja"
 }

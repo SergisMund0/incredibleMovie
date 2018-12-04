@@ -8,22 +8,31 @@
 
 import Foundation
 import Alamofire
+import AlamofireImage
 
 final class APIClient {
-    static func popularMovies(page: Int, completion: @escaping (PopularMovies) -> Void) {
+    static func popularMovies(page: Int, completion: @escaping (_ entity: PopularMovies?, _ error: Error?) -> Void) {
         Alamofire.request(APIRouter.popularMovies(page: page)).responseData { (responseData) in
             switch responseData.result {
             case .success:
                 let jsonDecoder = JSONDecoder()
                 if let data = responseData.data {
-                    if let model = try? jsonDecoder.decode(PopularMovies.self, from: data) {
-                        completion(model)
+                    
+                    do {
+                        let decoder = JSONDecoder()
+                        let model = try decoder.decode(PopularMovies.self, from: data)
+                        completion(model, nil)
+                    } catch let error {
+                        print(error)
                     }
                 }
-                break
             case .failure(let error):
-                break
+                completion(nil, error)
             }
         }
+    }
+    
+    static func fetchImage(imageViewReference: UIImageView, path: String, completion: @escaping (PopularMovies) -> Void) {
+        imageViewReference.af_setImage(withURLRequest: APIRouter.fetchImage(path: path))
     }
 }
