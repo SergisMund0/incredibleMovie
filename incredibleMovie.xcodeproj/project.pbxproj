@@ -169,6 +169,53 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		EB45282E21B6FEDE00213B21 /* DetailScene */ = {
+			isa = PBXGroup;
+			children = (
+				EB45283021B6FEDE00213B21 /* View */,
+				EB45282F21B6FEDE00213B21 /* Presenter */,
+				EB45283121B6FEDE00213B21 /* Interactor */,
+				EB45283221B6FEDE00213B21 /* Entities */,
+				EB45283321B6FEDE00213B21 /* Router */,
+			);
+			path = DetailScene;
+			sourceTree = "<group>";
+		};
+		EB45282F21B6FEDE00213B21 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		EB45283021B6FEDE00213B21 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EB45283121B6FEDE00213B21 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		EB45283221B6FEDE00213B21 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		EB45283321B6FEDE00213B21 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		EBEDCF8D21B68F6800979618 = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				EB45282921B6BCBC00213B21 /* Components */,
+				EB45282E21B6FEDE00213B21 /* DetailScene */,
 				EB45281321B6B0AB00213B21 /* DashboardScene */,
 				EBEDCFB921B6913700979618 /* Network */,
 				EBEDCF9921B68F6800979618 /* AppDelegate.swift */,
