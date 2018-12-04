@@ -20,6 +20,13 @@
 		EB45282421B6B68000213B21 /* DashboardProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB45282321B6B68000213B21 /* DashboardProtocols.swift */; };
 		EB45282721B6B6CB00213B21 /* DashboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB45282521B6B6CB00213B21 /* DashboardTableViewController.swift */; };
 		EB45282C21B6BD0000213B21 /* MovieViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB45282A21B6BD0000213B21 /* MovieViewCell.swift */; };
+		EB45283521B702E200213B21 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB45283421B702E200213B21 /* DetailViewController.swift */; };
+		EB45283721B702F300213B21 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB45283621B702F300213B21 /* DetailPresenter.swift */; };
+		EB45283921B7030000213B21 /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB45283821B7030000213B21 /* DetailInteractor.swift */; };
+		EB45283B21B7030D00213B21 /* DetailEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB45283A21B7030D00213B21 /* DetailEntities.swift */; };
+		EB45283D21B7031800213B21 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB45283C21B7031800213B21 /* DetailRouter.swift */; };
+		EB45283F21B7035700213B21 /* DetailProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB45283E21B7035700213B21 /* DetailProtocols.swift */; };
+		EB45284221B7043500213B21 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB45284121B7043500213B21 /* UIStoryboard.swift */; };
 		EBEDCF9A21B68F6800979618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEDCF9921B68F6800979618 /* AppDelegate.swift */; };
 		EBEDCF9C21B68F6800979618 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEDCF9B21B68F6800979618 /* ViewController.swift */; };
 		EBEDCF9F21B68F6800979618 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBEDCF9D21B68F6800979618 /* Main.storyboard */; };
@@ -56,6 +63,13 @@
 		EB45282321B6B68000213B21 /* DashboardProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardProtocols.swift; sourceTree = "<group>"; };
 		EB45282521B6B6CB00213B21 /* DashboardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewController.swift; sourceTree = "<group>"; };
 		EB45282A21B6BD0000213B21 /* MovieViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewCell.swift; sourceTree = "<group>"; };
+		EB45283421B702E200213B21 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		EB45283621B702F300213B21 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		EB45283821B7030000213B21 /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
+		EB45283A21B7030D00213B21 /* DetailEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEntities.swift; sourceTree = "<group>"; };
+		EB45283C21B7031800213B21 /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
+		EB45283E21B7035700213B21 /* DetailProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProtocols.swift; sourceTree = "<group>"; };
+		EB45284121B7043500213B21 /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		EBEDCF9621B68F6800979618 /* incredibleMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = incredibleMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBEDCF9921B68F6800979618 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBEDCF9B21B68F6800979618 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +186,7 @@
 		EB45282E21B6FEDE00213B21 /* DetailScene */ = {
 			isa = PBXGroup;
 			children = (
+				EB45283E21B7035700213B21 /* DetailProtocols.swift */,
 				EB45283021B6FEDE00213B21 /* View */,
 				EB45282F21B6FEDE00213B21 /* Presenter */,
 				EB45283121B6FEDE00213B21 /* Interactor */,
@@ -184,6 +199,7 @@
 		EB45282F21B6FEDE00213B21 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				EB45283621B702F300213B21 /* DetailPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -191,6 +207,7 @@
 		EB45283021B6FEDE00213B21 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EB45283421B702E200213B21 /* DetailViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -198,6 +215,7 @@
 		EB45283121B6FEDE00213B21 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				EB45283821B7030000213B21 /* DetailInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -205,6 +223,7 @@
 		EB45283221B6FEDE00213B21 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				EB45283A21B7030D00213B21 /* DetailEntities.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -212,8 +231,17 @@
 		EB45283321B6FEDE00213B21 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				EB45283C21B7031800213B21 /* DetailRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		EB45284021B7041B00213B21 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EB45284121B7043500213B21 /* UIStoryboard.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		EBEDCF8D21B68F6800979618 = {
@@ -239,6 +267,7 @@
 		EBEDCF9821B68F6800979618 /* incredibleMovie */ = {
 			isa = PBXGroup;
 			children = (
+				EB45284021B7041B00213B21 /* Extensions */,
 				EB45282921B6BCBC00213B21 /* Components */,
 				EB45282E21B6FEDE00213B21 /* DetailScene */,
 				EB45281321B6B0AB00213B21 /* DashboardScene */,
@@ -456,11 +485,18 @@
 				EB45282721B6B6CB00213B21 /* DashboardTableViewController.swift in Sources */,
 				EB45280B21B6923C00213B21 /* APIClient.swift in Sources */,
 				EB45282021B6B66500213B21 /* DashboardInteractor.swift in Sources */,
+				EB45283F21B7035700213B21 /* DetailProtocols.swift in Sources */,
+				EB45283721B702F300213B21 /* DetailPresenter.swift in Sources */,
 				EB45281E21B6B65800213B21 /* DashboardPresenter.swift in Sources */,
 				EB45281A21B6B10600213B21 /* PopularMovies.swift in Sources */,
 				EB45282421B6B68000213B21 /* DashboardProtocols.swift in Sources */,
 				EB45281221B6AEC300213B21 /* APIErrors.swift in Sources */,
 				EB45282221B6B67100213B21 /* DashboardRouter.swift in Sources */,
+				EB45283B21B7030D00213B21 /* DetailEntities.swift in Sources */,
+				EB45284221B7043500213B21 /* UIStoryboard.swift in Sources */,
+				EB45283D21B7031800213B21 /* DetailRouter.swift in Sources */,
+				EB45283521B702E200213B21 /* DetailViewController.swift in Sources */,
+				EB45283921B7030000213B21 /* DetailInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
