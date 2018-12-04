@@ -18,12 +18,14 @@ final class DashboardTableViewController: UITableViewController {
         
         presenter?.viewDidLoad()
     }
+}
 
-    // MARK: - Table view data source
+// MARK: - TableView Datasource
+extension DashboardTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movieCellViewModel?.count ?? 0
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "MovieViewCell", for: indexPath) as? MovieViewCell,
             let viewModel = movieCellViewModel {
@@ -41,6 +43,18 @@ final class DashboardTableViewController: UITableViewController {
         } else {
             return UITableViewCell()
         }
+    }
+}
+
+// MARK: - TableView Delegate
+extension DashboardTableViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard var moviewCellModel = movieCellViewModel,
+            let presenter = presenter,
+        let currentCell = tableView.cellForRow(at: indexPath) as? MovieViewCell else { return }
+        
+        moviewCellModel[indexPath.row].imageData = currentCell.backgroundImage?.image
+        presenter.didSelectItem(moviewCellModel[indexPath.row])
     }
 }
 

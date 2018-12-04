@@ -6,7 +6,6 @@
 //  Copyright © 2018 Sergio Garre. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 final class DashboardRouter {
@@ -14,12 +13,8 @@ final class DashboardRouter {
 }
 
 extension DashboardRouter: DashboardRouterInjection {
-    static var mainStoryboard: UIStoryboard {
-        return UIStoryboard(name: "Main", bundle: Bundle.main)
-    }
-    
     static func setup(dashboardInjectionModel: String) -> UIViewController? {
-        let navigationController = mainStoryboard.instantiateViewController(withIdentifier: "NavigationController")
+        let navigationController = UIStoryboard.main.instantiateViewController(withIdentifier: "NavigationController")
         guard var view = navigationController.children.first as? DashboardViewInjection else { return nil }
         
         var presenter: DashboardPresenterInjection & DashboardViewDelegate = DashboardPresenter()

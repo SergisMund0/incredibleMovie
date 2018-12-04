@@ -6,7 +6,7 @@
 //  Copyright © 2018 Sergio Garre. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct DashboardInjectionModel {
     let viewDataModel: [MovieCellViewModel]
@@ -15,6 +15,10 @@ struct DashboardInjectionModel {
 struct MovieCellViewModel {
     let title: String
     let backgroundImageURL: String
+    let subtitle: String?
+    let rating: String
+    let date: String
+    var imageData: UIImage?
 }
 
 struct PopularMovies: Codable {

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class DashboardPresenter {
     var view: DashboardViewInjection?
@@ -31,6 +32,14 @@ extension DashboardPresenter: DashboardViewDelegate {
         }
     }
     
+    func didSelectItem(_ model: MovieCellViewModel) {
+        guard let detailViewController = DetailRouter.setup(movieCellViewModel: model) else { return }
+        
+        if let viewController = view as? UITableViewController {
+            viewController.navigationController?.pushViewController(detailViewController, animated: true)
+        }
+    }
+    
     private func popularMovies(page: Int) {
         interactor?.popularMovies(page: page, completion: { [unowned self] (popularMovies, error) in
             if let error = error {
@@ -44,7 +53,7 @@ extension DashboardPresenter: DashboardViewDelegate {
                 
                 for movie in popularMovies.results {
                     if let backgroundImageURL = movie.backdropPath {
-                        let movieInjectionCell = MovieCellViewModel(title: movie.name, backgroundImageURL: backgroundImageURL)
+                        let movieInjectionCell = MovieCellViewModel(title: movie.name, backgroundImageURL: backgroundImageURL, subtitle: movie.overview, rating: "\(movie.popularity)", date: movie.firstAirDate, imageData: nil)
                         viewDataModel.append(movieInjectionCell)
                     }
                 }

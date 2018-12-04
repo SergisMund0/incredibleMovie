@@ -19,6 +19,7 @@ protocol DashboardViewInjection {
 protocol DashboardViewDelegate {
     func viewDidLoad()
     func viewDidScrollToBottom()
+    func didSelectItem(_ model: MovieCellViewModel)
 }
 
 protocol DashboardPresenterInjection {
