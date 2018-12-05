@@ -13,6 +13,7 @@ final class DashboardViewController: UIViewController {
     var presenter: DashboardViewDelegate?
     var movieCellViewModel: [MovieCellViewModel]?
     
+    @IBOutlet weak private var filterView: FilterView!
     @IBOutlet weak private var tableView: UITableView!
     @IBOutlet weak private var filterViewHeightConstraint: NSLayoutConstraint!
     
@@ -21,11 +22,12 @@ final class DashboardViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        filterView.delegate = self
         presenter?.viewDidLoad()
     }
     
     @IBAction func bottomButtonAction(_ sender: UIButton) {
-        if filterViewHeightConstraint.constant == 150 {
+        if filterViewHeightConstraint.constant == 100 {
             let animator = UIViewPropertyAnimator(duration: 0.25, curve: .linear) {
                 self.filterViewHeightConstraint.constant = 0
                 self.view.layoutIfNeeded()
@@ -34,7 +36,7 @@ final class DashboardViewController: UIViewController {
             animator.startAnimation()
         } else {
             let animator = UIViewPropertyAnimator(duration: 0.25, curve: .linear) {
-                self.filterViewHeightConstraint.constant = 150
+                self.filterViewHeightConstraint.constant = 100
                 self.view.layoutIfNeeded()
             }
             
@@ -57,6 +59,7 @@ extension DashboardViewController: UITableViewDataSource {
             }
             
             cell.titleLabel.text = viewModel[indexPath.row].title
+            cell.subtitleLabel.text = viewModel[indexPath.row].releaseDate
             
             if indexPath.row == viewModel.count-1 {
                 presenter?.viewDidScrollToBottom()
@@ -84,11 +87,23 @@ extension DashboardViewController: UITableViewDelegate {
 extension DashboardViewController: DashboardViewInjection {
     func initialDataDidLoad(dashboardInjectionModel: DashboardInjectionModel) {
         movieCellViewModel = dashboardInjectionModel.viewDataModel
+        let filterViewModel = FilterViewModel(leadingValue: dashboardInjectionModel.minimumDate, trailingValue: dashboardInjectionModel.maximumDate)
+        filterView.setup(viewModel: filterViewModel)
+        
         tableView.reloadData()
     }
     
     func viewDidReceiveUpdates(dashboardInjectionModel: DashboardInjectionModel) {
         movieCellViewModel?.append(contentsOf: dashboardInjectionModel.viewDataModel)
+        let filterViewModel = FilterViewModel(leadingValue: dashboardInjectionModel.minimumDate, trailingValue: dashboardInjectionModel.maximumDate)
+        filterView.setup(viewModel: filterViewModel)
+        
         tableView.reloadData()
+    }
+}
+
+extension DashboardViewController: FilterViewDelegate {
+    func sliderDidEndEditing(minValue: String, maxValue: String) {
+        
     }
 }
