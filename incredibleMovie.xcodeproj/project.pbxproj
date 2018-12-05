@@ -31,6 +31,9 @@
 		EB94177421B7FD9100B5C845 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94177321B7FD9100B5C845 /* FilterView.swift */; };
 		EB94177621B7FDD700B5C845 /* FilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB94177521B7FDD700B5C845 /* FilterView.xib */; };
 		EB94177921B8338800B5C845 /* MovieCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94177821B8338800B5C845 /* MovieCellModel.swift */; };
+		EB94177C21B86EF200B5C845 /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = EB94177B21B86EF200B5C845 /* loader.json */; };
+		EB94177E21B8700100B5C845 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB94177D21B8700100B5C845 /* LoadingView.xib */; };
+		EB94178021B8707600B5C845 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94177F21B8707600B5C845 /* LoadingView.swift */; };
 		EBEDCF9A21B68F6800979618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEDCF9921B68F6800979618 /* AppDelegate.swift */; };
 		EBEDCF9C21B68F6800979618 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEDCF9B21B68F6800979618 /* ViewController.swift */; };
 		EBEDCF9F21B68F6800979618 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBEDCF9D21B68F6800979618 /* Main.storyboard */; };
@@ -78,6 +81,9 @@
 		EB94177321B7FD9100B5C845 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		EB94177521B7FDD700B5C845 /* FilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterView.xib; sourceTree = "<group>"; };
 		EB94177821B8338800B5C845 /* MovieCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCellModel.swift; sourceTree = "<group>"; };
+		EB94177B21B86EF200B5C845 /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
+		EB94177D21B8700100B5C845 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		EB94177F21B8707600B5C845 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		EBEDCF9621B68F6800979618 /* incredibleMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = incredibleMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBEDCF9921B68F6800979618 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBEDCF9B21B68F6800979618 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +192,7 @@
 		EB45282921B6BCBC00213B21 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				EB94177A21B86E2100B5C845 /* LoadingView */,
 				EB94177021B7FD3A00B5C845 /* FilterView */,
 				EB94177721B8334A00B5C845 /* MovieViewCell */,
 			);
@@ -270,6 +277,16 @@
 				EB45282A21B6BD0000213B21 /* MovieViewCell.swift */,
 			);
 			path = MovieViewCell;
+			sourceTree = "<group>";
+		};
+		EB94177A21B86E2100B5C845 /* LoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				EB94177F21B8707600B5C845 /* LoadingView.swift */,
+				EB94177D21B8700100B5C845 /* LoadingView.xib */,
+				EB94177B21B86EF200B5C845 /* loader.json */,
+			);
+			path = LoadingView;
 			sourceTree = "<group>";
 		};
 		EBEDCF8D21B68F6800979618 = {
@@ -418,6 +435,8 @@
 				EBEDCFA421B68F6900979618 /* LaunchScreen.storyboard in Resources */,
 				EBEDCFA121B68F6900979618 /* Assets.xcassets in Resources */,
 				EBEDCF9F21B68F6800979618 /* Main.storyboard in Resources */,
+				EB94177E21B8700100B5C845 /* LoadingView.xib in Resources */,
+				EB94177C21B86EF200B5C845 /* loader.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +506,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/RangeSeekSlider/RangeSeekSlider.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -495,6 +515,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RangeSeekSlider.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -513,6 +534,7 @@
 				EB45280D21B6925100213B21 /* APIRouter.swift in Sources */,
 				EB45282C21B6BD0000213B21 /* MovieViewCell.swift in Sources */,
 				EBEDCF9A21B68F6800979618 /* AppDelegate.swift in Sources */,
+				EB94178021B8707600B5C845 /* LoadingView.swift in Sources */,
 				EB45280921B691F200213B21 /* APIConstants.swift in Sources */,
 				EB45282721B6B6CB00213B21 /* DashboardViewController.swift in Sources */,
 				EB45280B21B6923C00213B21 /* APIClient.swift in Sources */,
