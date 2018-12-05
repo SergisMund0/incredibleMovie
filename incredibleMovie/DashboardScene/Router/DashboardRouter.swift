@@ -8,12 +8,8 @@
 
 import UIKit
 
-final class DashboardRouter {
-    
-}
-
-extension DashboardRouter: DashboardRouterInjection {
-    static func setup(dashboardInjectionModel: String) -> UIViewController? {
+final class DashboardRouter: DashboardRouterInjection {
+    static func setup() -> UIViewController? {
         let navigationController = UIStoryboard.main.instantiateViewController(withIdentifier: "NavigationController")
         guard var view = navigationController.children.first as? DashboardViewInjection else { return nil }
         

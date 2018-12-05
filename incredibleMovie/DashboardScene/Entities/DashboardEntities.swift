@@ -8,12 +8,22 @@
 
 import UIKit
 
+// This is the input model when the
+// view needs to change its state
 struct DashboardInjectionModel {
-    let minimumDate: String
-    let maximumDate: String
-    let movieCellModel: [MovieCellModel]
+    let filterViewModel: FilterViewModel
+    var movieCellModel: [MovieCellModel]
 }
 
+// This is the output model when a user takes
+// an action over the UI
+struct DashboardDelegateModel {
+    let minimumSelectedDate: String
+    let maximumSelectedDate: String
+    let selectedMovieCellModel: MovieCellModel
+}
+
+// The data retrieved from the Server for the Popular Movies
 struct PopularMovies: Codable {
     let page, totalResults, totalPages: Int
     let results: [Result]

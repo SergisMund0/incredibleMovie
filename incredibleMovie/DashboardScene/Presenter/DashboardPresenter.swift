@@ -9,19 +9,32 @@
 import Foundation
 import UIKit
 
-final class DashboardPresenter {
+final class DashboardPresenter: DashboardPresenterInjection {
+    // MARK: - Public properties
     var view: DashboardViewInjection?
     var interactor: DashboardInteractorInjection?
     
+    // MARK: - Private properties
     private var currentPage = 1
     private var totalPages = 0
     private var currentReleaseDates = [String]()
 }
 
-extension DashboardPresenter: DashboardPresenterInjection {
-}
-
+// MARK: - DashboardViewDelegate
 extension DashboardPresenter: DashboardViewDelegate {
+    func didSelectItem(_ model: DashboardDelegateModel) {
+        guard let detailViewController = DetailRouter.setup(movieCellModel: model.selectedMovieCellModel),
+        let viewController = view as? UIViewController else {
+            return
+        }
+        
+        viewController.navigationController?.pushViewController(detailViewController, animated: true)
+    }
+    
+    func filterDidFinish(_ model: DashboardDelegateModel) {
+        
+    }
+    
     func viewDidLoad() {
         popularMovies(page: currentPage)
     }
@@ -31,18 +44,6 @@ extension DashboardPresenter: DashboardViewDelegate {
             currentPage += 1
             popularMovies(page: currentPage)
         }
-    }
-    
-    func didSelectItem(_ model: MovieCellModel) {
-        guard let detailViewController = DetailRouter.setup(movieCellModel: model) else { return }
-        
-        if let viewController = view as? UIViewController {
-            viewController.navigationController?.pushViewController(detailViewController, animated: true)
-        }
-    }
-    
-    func filterDidFinish(_ model: DashboardInjectionModel) {
-        
     }
     
     private func popularMovies(page: Int) {
@@ -56,13 +57,13 @@ extension DashboardPresenter: DashboardViewDelegate {
             if let popularMovies = popularMovies {
                 self.totalPages = popularMovies.totalPages
                 
-                var viewDataModel = [MovieCellModel]()
+                var movieCellModel = [MovieCellModel]()
                 var dates = [String]()
                 
                 for movie in popularMovies.results {
                     if let backgroundImageURL = movie.backdropPath {
                         let movieInjectionCell = MovieCellModel(backgroundImageURL: backgroundImageURL, title: movie.name, releaseDate: movie.firstAirDate, backgroundImageData: nil, overviewContent: movie.overview, rating: "\(movie.popularity)")
-                        viewDataModel.append(movieInjectionCell)
+                        movieCellModel.append(movieInjectionCell)
                         dates.append(movie.firstAirDate)
                     }
                 }
@@ -72,12 +73,13 @@ extension DashboardPresenter: DashboardViewDelegate {
                 
                 let rangeDates = interactor.releaseDateRange(ReleaseDates(dates: self.currentReleaseDates))
                 
-                let dashboardInjectionModel = DashboardInjectionModel(minimumDate: rangeDates.minDate, maximumDate: rangeDates.maxDate, movieCellModel: viewDataModel)
+                let filterViewModel = FilterViewModel(leadingValue: rangeDates.minDate, trailingValue: rangeDates.maxDate)
+                let dasboardInjectionModel = DashboardInjectionModel(filterViewModel: filterViewModel, movieCellModel: movieCellModel)
 
                 if self.currentPage == 1 {
-                    self.view?.initialDataDidLoad(dashboardInjectionModel: dashboardInjectionModel)
+                    self.view?.initialDataDidLoad(dashboardInjectionModel: dasboardInjectionModel)
                 } else {
-                    self.view?.viewDidReceiveUpdates(dashboardInjectionModel: dashboardInjectionModel)
+                    self.view?.viewDidReceiveUpdates(dashboardInjectionModel: dasboardInjectionModel)
                 }
             }
         })
