@@ -11,7 +11,7 @@ import UIKit
 protocol DetailViewInjection {
     var presenter: DetailViewDelegate? { get set }
     
-    func viewDidReceiveUpdates(movieCellViewModel: MovieCellViewModel)
+    func viewDidReceiveUpdates(movieCellModel: MovieCellModel)
 }
 
 protocol DetailViewDelegate {
@@ -21,7 +21,7 @@ protocol DetailViewDelegate {
 protocol DetailPresenterInjection {
     var view: DetailViewInjection? { get set }
     var interactor: DetailInteractorInjection? { get set }
-    var movieCellViewModel: MovieCellViewModel? { get set }
+    var movieCellModel: MovieCellModel? { get set }
 }
 
 protocol DetailPresenterDelegate {
@@ -33,7 +33,7 @@ protocol DetailInteractorInjection {
 }
 
 protocol DetailRouterInjection {
-    static func setup(movieCellViewModel: MovieCellViewModel) -> UIViewController?
+    static func setup(movieCellModel: MovieCellModel) -> UIViewController?
 }
 
 protocol DetailRotuerDelegate {

@@ -12,7 +12,7 @@ final class DetailPresenter {
     var view: DetailViewInjection?
     var interactor: DetailInteractorInjection?
     
-    var movieCellViewModel: MovieCellViewModel?
+    var movieCellModel: MovieCellModel?
 }
 
 extension DetailPresenter: DetailPresenterInjection {
@@ -21,8 +21,8 @@ extension DetailPresenter: DetailPresenterInjection {
 
 extension DetailPresenter: DetailViewDelegate {
     func viewDidLoad() {
-        guard let movieCellViewModel = movieCellViewModel else { return }
+        guard let movieCellModel = movieCellModel else { return }
         
-        view?.viewDidReceiveUpdates(movieCellViewModel: movieCellViewModel)
+        view?.viewDidReceiveUpdates(movieCellModel: movieCellModel)
     }
 }

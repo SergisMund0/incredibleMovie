@@ -37,12 +37,12 @@ final class DetailViewController: UIViewController {
 }
 
 extension DetailViewController: DetailViewInjection {
-    func viewDidReceiveUpdates(movieCellViewModel: MovieCellViewModel) {
+    func viewDidReceiveUpdates(movieCellModel: MovieCellModel) {
         print("estoy aqui")
-        backgroundImage.image = movieCellViewModel.imageData
-        backgroundTitle.text = movieCellViewModel.title
-        contentTitle.text = movieCellViewModel.title
-        contentRating.text = movieCellViewModel.rating
-        contentDescription.text = movieCellViewModel.subtitle
+        backgroundImage.image = movieCellModel.backgroundImageData
+        backgroundTitle.text = movieCellModel.title
+        contentTitle.text = movieCellModel.title
+        contentRating.text = movieCellModel.rating
+        contentDescription.text = movieCellModel.overviewContent
     }
 }

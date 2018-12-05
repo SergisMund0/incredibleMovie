@@ -8,12 +8,13 @@
 
 import UIKit 
 
+// TO DO: Figure out how to correctly set the model 
 struct FilterViewModel {
     let leadingTitle, trailingTitle: String
     let leadingValue, trailingValue: CGFloat
 
-    init(leadingTitle: String = "Minimum Year",
-         trailingTitle: String = "Maximum Year",
+    init(leadingTitle: String = "MINIMUM YEAR",
+         trailingTitle: String = "MAXIMUM YEAR",
          leadingValue: String,
          trailingValue: String) {
 

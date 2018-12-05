@@ -33,12 +33,16 @@ extension DashboardPresenter: DashboardViewDelegate {
         }
     }
     
-    func didSelectItem(_ model: MovieCellViewModel) {
-        guard let detailViewController = DetailRouter.setup(movieCellViewModel: model) else { return }
+    func didSelectItem(_ model: MovieCellModel) {
+        guard let detailViewController = DetailRouter.setup(movieCellModel: model) else { return }
         
         if let viewController = view as? UIViewController {
             viewController.navigationController?.pushViewController(detailViewController, animated: true)
         }
+    }
+    
+    func filterDidFinish(_ model: DashboardInjectionModel) {
+        
     }
     
     private func popularMovies(page: Int) {
@@ -52,12 +56,12 @@ extension DashboardPresenter: DashboardViewDelegate {
             if let popularMovies = popularMovies {
                 self.totalPages = popularMovies.totalPages
                 
-                var viewDataModel = [MovieCellViewModel]()
+                var viewDataModel = [MovieCellModel]()
                 var dates = [String]()
                 
                 for movie in popularMovies.results {
                     if let backgroundImageURL = movie.backdropPath {
-                        let movieInjectionCell = MovieCellViewModel(title: movie.name, backgroundImageURL: backgroundImageURL, subtitle: movie.overview, rating: "\(movie.popularity)", releaseDate: movie.firstAirDate, imageData: nil)
+                        let movieInjectionCell = MovieCellModel(backgroundImageURL: backgroundImageURL, title: movie.name, releaseDate: movie.firstAirDate, backgroundImageData: nil, overviewContent: movie.overview, rating: "\(movie.popularity)")
                         viewDataModel.append(movieInjectionCell)
                         dates.append(movie.firstAirDate)
                     }
@@ -68,7 +72,7 @@ extension DashboardPresenter: DashboardViewDelegate {
                 
                 let rangeDates = interactor.releaseDateRange(ReleaseDates(dates: self.currentReleaseDates))
                 
-                let dashboardInjectionModel = DashboardInjectionModel(minimumDate: rangeDates.minDate, maximumDate: rangeDates.maxDate, viewDataModel: viewDataModel)
+                let dashboardInjectionModel = DashboardInjectionModel(minimumDate: rangeDates.minDate, maximumDate: rangeDates.maxDate, movieCellModel: viewDataModel)
 
                 if self.currentPage == 1 {
                     self.view?.initialDataDidLoad(dashboardInjectionModel: dashboardInjectionModel)

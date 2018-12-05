@@ -13,7 +13,7 @@ final class DetailRouter {
 }
 
 extension DetailRouter: DetailRouterInjection {
-    static func setup(movieCellViewModel: MovieCellViewModel) -> UIViewController? {
+    static func setup(movieCellModel: MovieCellModel) -> UIViewController? {
         guard var view = UIStoryboard.main.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewInjection else { return nil }
         
         var presenter: DetailPresenterInjection & DetailViewDelegate = DetailPresenter()
@@ -22,21 +22,8 @@ extension DetailRouter: DetailRouterInjection {
         view.presenter = presenter
         presenter.view = view
         presenter.interactor = interactor
-        presenter.movieCellViewModel = movieCellViewModel
+        presenter.movieCellModel = movieCellModel
         
         return view as? UIViewController
     }
 }
-
-
-//let navigationController = UIStoryboard.main.instantiateViewController(withIdentifier: "NavigationController")
-//guard var view = navigationController.children.first as? DashboardViewInjection else { return nil }
-//
-//var presenter: DashboardPresenterInjection & DashboardViewDelegate = DashboardPresenter()
-//let interactor: DashboardInteractorInjection = DashboardInteractor()
-//
-//view.presenter = presenter
-//presenter.view = view
-//presenter.interactor = interactor
-//
-//return navigationController

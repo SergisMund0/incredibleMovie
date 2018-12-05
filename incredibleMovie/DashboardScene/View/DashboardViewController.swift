@@ -11,7 +11,7 @@ import AlamofireImage
 
 final class DashboardViewController: UIViewController {
     var presenter: DashboardViewDelegate?
-    var movieCellViewModel: [MovieCellViewModel]?
+    var movieCellModel: [MovieCellModel]?
     
     @IBOutlet weak private var filterView: FilterView!
     @IBOutlet weak private var tableView: UITableView!
@@ -48,12 +48,12 @@ final class DashboardViewController: UIViewController {
 // MARK: - TableView Datasource
 extension DashboardViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movieCellViewModel?.count ?? 0
+        return movieCellModel?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "MovieViewCell", for: indexPath) as? MovieViewCell,
-            let viewModel = movieCellViewModel {
+            let viewModel = movieCellModel {
             if let url = URL(string: "https://image.tmdb.org/t/p/w1280/" + viewModel[indexPath.row].backgroundImageURL) {
                 cell.backgroundImage.af_setImage(withURL: url)
             }
@@ -75,18 +75,18 @@ extension DashboardViewController: UITableViewDataSource {
 // MARK: - TableView Delegate
 extension DashboardViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard var moviewCellModel = movieCellViewModel,
+        guard var movieCellModel = movieCellModel,
             let presenter = presenter,
         let currentCell = tableView.cellForRow(at: indexPath) as? MovieViewCell else { return }
         
-        moviewCellModel[indexPath.row].imageData = currentCell.backgroundImage?.image
-        presenter.didSelectItem(moviewCellModel[indexPath.row])
+        movieCellModel[indexPath.row].backgroundImageData = currentCell.backgroundImage?.image
+        presenter.didSelectItem(movieCellModel[indexPath.row])
     }
 }
 
 extension DashboardViewController: DashboardViewInjection {
     func initialDataDidLoad(dashboardInjectionModel: DashboardInjectionModel) {
-        movieCellViewModel = dashboardInjectionModel.viewDataModel
+        movieCellModel = dashboardInjectionModel.movieCellModel
         let filterViewModel = FilterViewModel(leadingValue: dashboardInjectionModel.minimumDate, trailingValue: dashboardInjectionModel.maximumDate)
         filterView.setup(viewModel: filterViewModel)
         
@@ -94,7 +94,7 @@ extension DashboardViewController: DashboardViewInjection {
     }
     
     func viewDidReceiveUpdates(dashboardInjectionModel: DashboardInjectionModel) {
-        movieCellViewModel?.append(contentsOf: dashboardInjectionModel.viewDataModel)
+        movieCellModel?.append(contentsOf: dashboardInjectionModel.movieCellModel)
         let filterViewModel = FilterViewModel(leadingValue: dashboardInjectionModel.minimumDate, trailingValue: dashboardInjectionModel.maximumDate)
         filterView.setup(viewModel: filterViewModel)
         
