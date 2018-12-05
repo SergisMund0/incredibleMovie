@@ -35,7 +35,7 @@ extension DashboardPresenter: DashboardViewDelegate {
     func didSelectItem(_ model: MovieCellViewModel) {
         guard let detailViewController = DetailRouter.setup(movieCellViewModel: model) else { return }
         
-        if let viewController = view as? UITableViewController {
+        if let viewController = view as? UIViewController {
             viewController.navigationController?.pushViewController(detailViewController, animated: true)
         }
     }

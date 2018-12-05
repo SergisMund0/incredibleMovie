@@ -9,24 +9,47 @@
 import UIKit
 import AlamofireImage
 
-final class DashboardTableViewController: UITableViewController {
+final class DashboardViewController: UIViewController {
     var presenter: DashboardViewDelegate?
     var movieCellViewModel: [MovieCellViewModel]?
+    
+    @IBOutlet weak private var tableView: UITableView!
+    @IBOutlet weak private var filterViewHeightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.delegate = self
+        tableView.dataSource = self
         presenter?.viewDidLoad()
+    }
+    
+    @IBAction func bottomButtonAction(_ sender: UIButton) {
+        if filterViewHeightConstraint.constant == 150 {
+            let animator = UIViewPropertyAnimator(duration: 0.25, curve: .linear) {
+                self.filterViewHeightConstraint.constant = 0
+                self.view.layoutIfNeeded()
+            }
+            
+            animator.startAnimation()
+        } else {
+            let animator = UIViewPropertyAnimator(duration: 0.25, curve: .linear) {
+                self.filterViewHeightConstraint.constant = 150
+                self.view.layoutIfNeeded()
+            }
+            
+            animator.startAnimation()
+        }
     }
 }
 
 // MARK: - TableView Datasource
-extension DashboardTableViewController {
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension DashboardViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movieCellViewModel?.count ?? 0
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "MovieViewCell", for: indexPath) as? MovieViewCell,
             let viewModel = movieCellViewModel {
             if let url = URL(string: "https://image.tmdb.org/t/p/w1280/" + viewModel[indexPath.row].backgroundImageURL) {
@@ -47,8 +70,8 @@ extension DashboardTableViewController {
 }
 
 // MARK: - TableView Delegate
-extension DashboardTableViewController {
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+extension DashboardViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard var moviewCellModel = movieCellViewModel,
             let presenter = presenter,
         let currentCell = tableView.cellForRow(at: indexPath) as? MovieViewCell else { return }
@@ -58,7 +81,7 @@ extension DashboardTableViewController {
     }
 }
 
-extension DashboardTableViewController: DashboardViewInjection {
+extension DashboardViewController: DashboardViewInjection {
     func initialDataDidLoad(dashboardInjectionModel: DashboardInjectionModel) {
         movieCellViewModel = dashboardInjectionModel.viewDataModel
         tableView.reloadData()

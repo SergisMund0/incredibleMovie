@@ -18,7 +18,7 @@
 		EB45282021B6B66500213B21 /* DashboardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB45281F21B6B66500213B21 /* DashboardInteractor.swift */; };
 		EB45282221B6B67100213B21 /* DashboardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB45282121B6B67100213B21 /* DashboardRouter.swift */; };
 		EB45282421B6B68000213B21 /* DashboardProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB45282321B6B68000213B21 /* DashboardProtocols.swift */; };
-		EB45282721B6B6CB00213B21 /* DashboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB45282521B6B6CB00213B21 /* DashboardTableViewController.swift */; };
+		EB45282721B6B6CB00213B21 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB45282521B6B6CB00213B21 /* DashboardViewController.swift */; };
 		EB45282C21B6BD0000213B21 /* MovieViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB45282A21B6BD0000213B21 /* MovieViewCell.swift */; };
 		EB45283521B702E200213B21 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB45283421B702E200213B21 /* DetailViewController.swift */; };
 		EB45283721B702F300213B21 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB45283621B702F300213B21 /* DetailPresenter.swift */; };
@@ -61,7 +61,7 @@
 		EB45281F21B6B66500213B21 /* DashboardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardInteractor.swift; sourceTree = "<group>"; };
 		EB45282121B6B67100213B21 /* DashboardRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRouter.swift; sourceTree = "<group>"; };
 		EB45282321B6B68000213B21 /* DashboardProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardProtocols.swift; sourceTree = "<group>"; };
-		EB45282521B6B6CB00213B21 /* DashboardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewController.swift; sourceTree = "<group>"; };
+		EB45282521B6B6CB00213B21 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		EB45282A21B6BD0000213B21 /* MovieViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewCell.swift; sourceTree = "<group>"; };
 		EB45283421B702E200213B21 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		EB45283621B702F300213B21 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 		EB45281821B6B0F900213B21 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				EB45282521B6B6CB00213B21 /* DashboardTableViewController.swift */,
+				EB45282521B6B6CB00213B21 /* DashboardViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -482,7 +482,7 @@
 				EB45282C21B6BD0000213B21 /* MovieViewCell.swift in Sources */,
 				EBEDCF9A21B68F6800979618 /* AppDelegate.swift in Sources */,
 				EB45280921B691F200213B21 /* APIConstants.swift in Sources */,
-				EB45282721B6B6CB00213B21 /* DashboardTableViewController.swift in Sources */,
+				EB45282721B6B6CB00213B21 /* DashboardViewController.swift in Sources */,
 				EB45280B21B6923C00213B21 /* APIClient.swift in Sources */,
 				EB45282021B6B66500213B21 /* DashboardInteractor.swift in Sources */,
 				EB45283F21B7035700213B21 /* DetailProtocols.swift in Sources */,
