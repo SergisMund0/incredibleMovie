@@ -208,6 +208,10 @@
                                     <action selector="bottomButtonAction:" destination="rAM-xl-rVB" eventType="touchUpInside" id="ww1-PP-b2z"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vWf-a1-EOO" customClass="LoadingView" customModule="incredibleMovie" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -216,8 +220,12 @@
                             <constraint firstItem="D7g-bV-Xj2" firstAttribute="leading" secondItem="tPD-t2-ZGs" secondAttribute="leading" id="N7J-gS-P6u"/>
                             <constraint firstItem="tPD-t2-ZGs" firstAttribute="trailing" secondItem="D7g-bV-Xj2" secondAttribute="trailing" id="R8L-sV-0VU"/>
                             <constraint firstItem="D3E-Y4-DBr" firstAttribute="top" secondItem="D7g-bV-Xj2" secondAttribute="bottom" id="Tec-EE-PrZ"/>
+                            <constraint firstItem="tPD-t2-ZGs" firstAttribute="bottom" secondItem="vWf-a1-EOO" secondAttribute="bottom" id="U8B-OT-Obo"/>
+                            <constraint firstAttribute="trailing" secondItem="vWf-a1-EOO" secondAttribute="trailing" id="UkP-oF-ORa"/>
+                            <constraint firstItem="vWf-a1-EOO" firstAttribute="leading" secondItem="AQI-sl-J3u" secondAttribute="leading" id="bZS-nk-Hex"/>
                             <constraint firstItem="NXa-Gy-i3H" firstAttribute="centerX" secondItem="AQI-sl-J3u" secondAttribute="centerX" id="cJx-xD-YUZ"/>
                             <constraint firstItem="tPD-t2-ZGs" firstAttribute="trailing" secondItem="D3E-Y4-DBr" secondAttribute="trailing" id="oAi-mX-Y8L"/>
+                            <constraint firstItem="tPD-t2-ZGs" firstAttribute="top" secondItem="vWf-a1-EOO" secondAttribute="top" id="sbh-DF-C2r"/>
                             <constraint firstItem="D7g-bV-Xj2" firstAttribute="top" secondItem="tPD-t2-ZGs" secondAttribute="top" id="tiE-5u-AEX"/>
                             <constraint firstItem="tPD-t2-ZGs" firstAttribute="bottom" secondItem="D3E-Y4-DBr" secondAttribute="bottom" id="zaf-QZ-4nC"/>
                         </constraints>
@@ -227,6 +235,7 @@
                     <connections>
                         <outlet property="filterView" destination="D7g-bV-Xj2" id="QLa-Wc-53R"/>
                         <outlet property="filterViewHeightConstraint" destination="i3g-sz-Xzq" id="D48-6k-BgF"/>
+                        <outlet property="loadingView" destination="vWf-a1-EOO" id="ge4-vD-v7M"/>
                         <outlet property="tableView" destination="D3E-Y4-DBr" id="Yh8-qz-VDX"/>
                     </connections>
                 </viewController>
