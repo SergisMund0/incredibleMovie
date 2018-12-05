@@ -138,15 +138,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D7g-bV-Xj2" userLabel="Filter View">
-                                <rect key="frame" x="0.0" y="88" width="375" height="150"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D7g-bV-Xj2" userLabel="Filter View" customClass="FilterView" customModule="incredibleMovie" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88" width="375" height="100"/>
                                 <color key="backgroundColor" red="1" green="0.45463998239999998" blue="0.36000663170000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="i3g-sz-Xzq"/>
+                                    <constraint firstAttribute="height" constant="100" id="i3g-sz-Xzq"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D3E-Y4-DBr">
-                                <rect key="frame" x="0.0" y="238" width="375" height="540"/>
+                                <rect key="frame" x="0.0" y="188" width="375" height="590"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MovieViewCell" rowHeight="150" id="K6f-uB-rv6" customClass="MovieViewCell" customModule="incredibleMovie" customModuleProvider="target">
@@ -164,7 +164,13 @@
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWf-O8-OLk">
-                                                    <rect key="frame" x="25" y="104.33333333333333" width="300" height="21"/>
+                                                    <rect key="frame" x="25" y="90" width="300" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eL7-Pu-1iM">
+                                                    <rect key="frame" x="25" y="121" width="300" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -173,19 +179,23 @@
                                             <constraints>
                                                 <constraint firstItem="u3Z-d2-7r4" firstAttribute="leading" secondItem="zew-Bx-yF3" secondAttribute="leading" id="7oG-jg-X7Q"/>
                                                 <constraint firstAttribute="bottom" secondItem="z4k-8J-NZ2" secondAttribute="bottom" id="H9T-j2-Ln5"/>
+                                                <constraint firstItem="eL7-Pu-1iM" firstAttribute="trailing" secondItem="BWf-O8-OLk" secondAttribute="trailing" id="HDJ-sF-1TF"/>
                                                 <constraint firstAttribute="trailing" secondItem="u3Z-d2-7r4" secondAttribute="trailing" id="I6E-Mh-7uf"/>
                                                 <constraint firstItem="BWf-O8-OLk" firstAttribute="leading" secondItem="z4k-8J-NZ2" secondAttribute="leading" constant="25" id="Kc8-GH-ZHN"/>
+                                                <constraint firstItem="BWf-O8-OLk" firstAttribute="top" secondItem="z4k-8J-NZ2" secondAttribute="top" constant="10" id="Kdx-Pm-Pip"/>
                                                 <constraint firstItem="z4k-8J-NZ2" firstAttribute="leading" secondItem="zew-Bx-yF3" secondAttribute="leading" id="Mlx-r3-HiZ"/>
-                                                <constraint firstItem="BWf-O8-OLk" firstAttribute="centerY" secondItem="z4k-8J-NZ2" secondAttribute="centerY" id="V4G-s6-3Ni"/>
                                                 <constraint firstAttribute="trailing" secondItem="z4k-8J-NZ2" secondAttribute="trailing" id="VNG-R8-9vw"/>
                                                 <constraint firstAttribute="bottom" secondItem="u3Z-d2-7r4" secondAttribute="bottom" id="cXl-wi-ogd"/>
+                                                <constraint firstItem="eL7-Pu-1iM" firstAttribute="top" secondItem="BWf-O8-OLk" secondAttribute="bottom" constant="10" id="czB-Bn-DYa"/>
                                                 <constraint firstItem="z4k-8J-NZ2" firstAttribute="top" secondItem="zew-Bx-yF3" secondAttribute="top" constant="80" id="f8R-4X-okM"/>
                                                 <constraint firstItem="u3Z-d2-7r4" firstAttribute="top" secondItem="zew-Bx-yF3" secondAttribute="top" id="kOK-Ap-mpb"/>
+                                                <constraint firstItem="eL7-Pu-1iM" firstAttribute="leading" secondItem="BWf-O8-OLk" secondAttribute="leading" id="my3-Qc-X0D"/>
                                                 <constraint firstAttribute="trailing" secondItem="BWf-O8-OLk" secondAttribute="trailing" constant="50" id="v9j-rY-DFc"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="backgroundImage" destination="u3Z-d2-7r4" id="BMd-Lm-Xbe"/>
+                                            <outlet property="subtitleLabel" destination="eL7-Pu-1iM" id="o7I-Af-6LS"/>
                                             <outlet property="titleLabel" destination="BWf-O8-OLk" id="JI0-iK-eL7"/>
                                         </connections>
                                     </tableViewCell>
@@ -215,6 +225,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="7vS-lZ-GOt"/>
                     <connections>
+                        <outlet property="filterView" destination="D7g-bV-Xj2" id="QLa-Wc-53R"/>
                         <outlet property="filterViewHeightConstraint" destination="i3g-sz-Xzq" id="D48-6k-BgF"/>
                         <outlet property="tableView" destination="D3E-Y4-DBr" id="Yh8-qz-VDX"/>
                     </connections>

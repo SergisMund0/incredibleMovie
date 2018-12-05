@@ -9,6 +9,7 @@ target 'incredibleMovie' do
 
   pod 'Alamofire', '~> 4.7'
   pod 'AlamofireImage', '~> 3.3'
+  pod 'RangeSeekSlider'
 
   target 'incredibleMovieTests' do
     inherit! :search_paths

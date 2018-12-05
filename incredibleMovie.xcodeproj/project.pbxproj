@@ -27,6 +27,9 @@
 		EB45283D21B7031800213B21 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB45283C21B7031800213B21 /* DetailRouter.swift */; };
 		EB45283F21B7035700213B21 /* DetailProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB45283E21B7035700213B21 /* DetailProtocols.swift */; };
 		EB45284221B7043500213B21 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB45284121B7043500213B21 /* UIStoryboard.swift */; };
+		EB94177221B7FD5200B5C845 /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94177121B7FD5200B5C845 /* FilterViewModel.swift */; };
+		EB94177421B7FD9100B5C845 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94177321B7FD9100B5C845 /* FilterView.swift */; };
+		EB94177621B7FDD700B5C845 /* FilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB94177521B7FDD700B5C845 /* FilterView.xib */; };
 		EBEDCF9A21B68F6800979618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEDCF9921B68F6800979618 /* AppDelegate.swift */; };
 		EBEDCF9C21B68F6800979618 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEDCF9B21B68F6800979618 /* ViewController.swift */; };
 		EBEDCF9F21B68F6800979618 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBEDCF9D21B68F6800979618 /* Main.storyboard */; };
@@ -70,6 +73,9 @@
 		EB45283C21B7031800213B21 /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
 		EB45283E21B7035700213B21 /* DetailProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProtocols.swift; sourceTree = "<group>"; };
 		EB45284121B7043500213B21 /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
+		EB94177121B7FD5200B5C845 /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
+		EB94177321B7FD9100B5C845 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		EB94177521B7FDD700B5C845 /* FilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterView.xib; sourceTree = "<group>"; };
 		EBEDCF9621B68F6800979618 /* incredibleMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = incredibleMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBEDCF9921B68F6800979618 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBEDCF9B21B68F6800979618 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +184,7 @@
 		EB45282921B6BCBC00213B21 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				EB94177021B7FD3A00B5C845 /* FilterView */,
 				EB45282A21B6BD0000213B21 /* MovieViewCell.swift */,
 			);
 			path = Components;
@@ -242,6 +249,16 @@
 				EB45284121B7043500213B21 /* UIStoryboard.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EB94177021B7FD3A00B5C845 /* FilterView */ = {
+			isa = PBXGroup;
+			children = (
+				EB94177121B7FD5200B5C845 /* FilterViewModel.swift */,
+				EB94177321B7FD9100B5C845 /* FilterView.swift */,
+				EB94177521B7FDD700B5C845 /* FilterView.xib */,
+			);
+			path = FilterView;
 			sourceTree = "<group>";
 		};
 		EBEDCF8D21B68F6800979618 = {
@@ -386,6 +403,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB94177621B7FDD700B5C845 /* FilterView.xib in Resources */,
 				EBEDCFA421B68F6900979618 /* LaunchScreen.storyboard in Resources */,
 				EBEDCFA121B68F6900979618 /* Assets.xcassets in Resources */,
 				EBEDCF9F21B68F6800979618 /* Main.storyboard in Resources */,
@@ -457,6 +475,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-incredibleMovie/Pods-incredibleMovie-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/RangeSeekSlider/RangeSeekSlider.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -464,6 +483,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RangeSeekSlider.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -477,6 +497,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB94177421B7FD9100B5C845 /* FilterView.swift in Sources */,
 				EBEDCF9C21B68F6800979618 /* ViewController.swift in Sources */,
 				EB45280D21B6925100213B21 /* APIRouter.swift in Sources */,
 				EB45282C21B6BD0000213B21 /* MovieViewCell.swift in Sources */,
@@ -484,6 +505,7 @@
 				EB45280921B691F200213B21 /* APIConstants.swift in Sources */,
 				EB45282721B6B6CB00213B21 /* DashboardViewController.swift in Sources */,
 				EB45280B21B6923C00213B21 /* APIClient.swift in Sources */,
+				EB94177221B7FD5200B5C845 /* FilterViewModel.swift in Sources */,
 				EB45282021B6B66500213B21 /* DashboardInteractor.swift in Sources */,
 				EB45283F21B7035700213B21 /* DetailProtocols.swift in Sources */,
 				EB45283721B702F300213B21 /* DetailPresenter.swift in Sources */,
