@@ -15,6 +15,7 @@ final class DashboardPresenter {
     
     private var currentPage = 1
     private var totalPages = 0
+    private var currentReleaseDates = [String]()
 }
 
 extension DashboardPresenter: DashboardPresenterInjection {
@@ -41,7 +42,9 @@ extension DashboardPresenter: DashboardViewDelegate {
     }
     
     private func popularMovies(page: Int) {
-        interactor?.popularMovies(page: page, completion: { [unowned self] (popularMovies, error) in
+        guard let interactor = interactor else { return }
+        
+        interactor.popularMovies(page: page, completion: { [unowned self] (popularMovies, error) in
             if let error = error {
                 
             }
@@ -50,16 +53,23 @@ extension DashboardPresenter: DashboardViewDelegate {
                 self.totalPages = popularMovies.totalPages
                 
                 var viewDataModel = [MovieCellViewModel]()
+                var dates = [String]()
                 
                 for movie in popularMovies.results {
                     if let backgroundImageURL = movie.backdropPath {
-                        let movieInjectionCell = MovieCellViewModel(title: movie.name, backgroundImageURL: backgroundImageURL, subtitle: movie.overview, rating: "\(movie.popularity)", date: movie.firstAirDate, imageData: nil)
+                        let movieInjectionCell = MovieCellViewModel(title: movie.name, backgroundImageURL: backgroundImageURL, subtitle: movie.overview, rating: "\(movie.popularity)", releaseDate: movie.firstAirDate, imageData: nil)
                         viewDataModel.append(movieInjectionCell)
+                        dates.append(movie.firstAirDate)
                     }
                 }
                 
-                let dashboardInjectionModel = DashboardInjectionModel(viewDataModel: viewDataModel)
+                let releaseDates = ReleaseDates(dates: dates)
+                self.currentReleaseDates.append(contentsOf: releaseDates.dates)
                 
+                let rangeDates = interactor.releaseDateRange(ReleaseDates(dates: self.currentReleaseDates))
+                
+                let dashboardInjectionModel = DashboardInjectionModel(minimumDate: rangeDates.minDate, maximumDate: rangeDates.maxDate, viewDataModel: viewDataModel)
+
                 if self.currentPage == 1 {
                     self.view?.initialDataDidLoad(dashboardInjectionModel: dashboardInjectionModel)
                 } else {

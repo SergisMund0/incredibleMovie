@@ -23,4 +23,47 @@ extension DashboardInteractor: DashboardInteractorInjection {
             }
         }
     }
+    
+    func releaseDateRange(_ releaseDates: ReleaseDates) -> (minDate: String, maxDate: String) {
+        var datesFiltered = [Date]()
+        
+        for releaseDate in releaseDates.dates {
+            if let formattedDate = formatStringToDate(releaseDate) {
+                datesFiltered.append(formattedDate)
+            }
+        }
+        
+        if let maxDate = datesFiltered.max(),
+            let minDate = datesFiltered.min() {
+            
+            return (minDate: getYearFromDate(minDate), maxDate: getYearFromDate(maxDate))
+        }
+        
+        return (minDate: "", maxDate: "")
+    }
+    
+    private func formatStringToDate(_ string: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        return dateFormatter.date(from: string)
+    }
+    
+    private func formatDateToString(_ date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        return dateFormatter.string(from: date)
+    }
+    
+    private func getYearFromDate(_ date: Date) -> String {
+        let calendar = Calendar.current
+        
+        let year = calendar.component(.year, from: date)
+        return "\(year)"
+    }
+}
+
+struct ReleaseDates {
+    let dates: [String]
 }
