@@ -6,7 +6,6 @@
 //  Copyright © 2018 Sergio Garre. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 protocol DashboardViewInjection {
@@ -20,6 +19,7 @@ protocol DashboardViewDelegate {
     func viewDidLoad()
     func viewDidScrollToBottom()
     func didSelectItem(_ model: MovieCellViewModel)
+    func filterDidFinish(_ model: DashboardInjectionModel)
 }
 
 protocol DashboardPresenterInjection {
@@ -32,7 +32,8 @@ protocol DashboardPresenterDelegate {
 }
 
 protocol DashboardInteractorInjection {
-    func popularMovies(page: Int, completion: @escaping (_ entity: PopularMovies?, _ error: Error?) -> Void) 
+    func popularMovies(page: Int, completion: @escaping (_ entity: PopularMovies?, _ error: Error?) -> Void)
+    func releaseDateRange(_ releaseDates: ReleaseDates) -> (minDate: String, maxDate: String) 
 }
 
 protocol DashboardRouterInjection {

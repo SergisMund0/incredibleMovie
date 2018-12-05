@@ -9,6 +9,8 @@
 import UIKit
 
 struct DashboardInjectionModel {
+    let minimumDate: String
+    let maximumDate: String
     let viewDataModel: [MovieCellViewModel]
 }
 
@@ -17,7 +19,7 @@ struct MovieCellViewModel {
     let backgroundImageURL: String
     let subtitle: String?
     let rating: String
-    let date: String
+    let releaseDate: String
     var imageData: UIImage?
 }
 
