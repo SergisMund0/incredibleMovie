@@ -71,7 +71,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rXd-HH-0Bf" secondAttribute="trailing" constant="55" id="9ML-YK-OMn"/>
                                                     <constraint firstItem="Cls-TL-dUd" firstAttribute="bottom" secondItem="LT5-G9-8eb" secondAttribute="bottom" constant="-25" id="Fn1-d3-sW2"/>
@@ -98,7 +98,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="IpY-ob-P0Y" secondAttribute="bottom" id="0mx-sn-2yG"/>
                                     <constraint firstItem="IpY-ob-P0Y" firstAttribute="leading" secondItem="Cip-Xk-0ie" secondAttribute="leading" id="SJX-Cf-eSh"/>
@@ -147,7 +147,7 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D3E-Y4-DBr">
                                 <rect key="frame" x="0.0" y="188" width="375" height="590"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MovieViewCell" rowHeight="150" id="K6f-uB-rv6" customClass="MovieViewCell" customModule="incredibleMovie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="150"/>
@@ -251,8 +251,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aGL-4p-D4w">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <color key="barTintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -262,6 +262,71 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ieS-Kb-57F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1445.5999999999999" y="799.50738916256159"/>
+        </scene>
+        <!--Error View Controller-->
+        <scene sceneID="KuB-E5-DfC">
+            <objects>
+                <viewController storyboardIdentifier="ErrorViewController" id="bLR-tQ-PXA" customClass="ErrorViewController" customModule="incredibleMovie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="r9T-bR-rOa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something went wrong :(" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hw1-Aa-f51">
+                                <rect key="frame" x="25" y="94" width="325" height="61"/>
+                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPl-kB-xAI">
+                                <rect key="frame" x="161.66666666666666" y="448.66666666666669" width="52" height="30"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
+                                <state key="normal" title="Close">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="bottomButtonDidPress:" destination="bLR-tQ-PXA" eventType="touchUpInside" id="TY8-kV-i4Q"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YMA-Q2-RIM">
+                                <rect key="frame" x="112.66666666666669" y="180" width="150" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="9zR-Lf-kuo"/>
+                                    <constraint firstAttribute="width" constant="150" id="dp5-SD-pXF"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There is a large error message, I'm just testing how this label will react when a large text comes... " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qbQ-fK-7bC">
+                                <rect key="frame" x="25" y="315" width="325" height="58.666666666666686"/>
+                                <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YMA-Q2-RIM" firstAttribute="centerX" secondItem="r9T-bR-rOa" secondAttribute="centerX" id="F49-t0-oW7"/>
+                            <constraint firstItem="Hw1-Aa-f51" firstAttribute="top" secondItem="Kiu-CH-2Qy" secondAttribute="top" constant="50" id="IKz-oo-IUL"/>
+                            <constraint firstItem="qbQ-fK-7bC" firstAttribute="top" secondItem="YMA-Q2-RIM" secondAttribute="bottom" constant="35" id="TUV-Jc-RaP"/>
+                            <constraint firstItem="qbQ-fK-7bC" firstAttribute="leading" secondItem="Kiu-CH-2Qy" secondAttribute="leading" constant="25" id="YyK-3P-bqn"/>
+                            <constraint firstItem="Kiu-CH-2Qy" firstAttribute="trailing" secondItem="qbQ-fK-7bC" secondAttribute="trailing" constant="25" id="dRe-Lh-gXF"/>
+                            <constraint firstItem="YMA-Q2-RIM" firstAttribute="top" secondItem="Hw1-Aa-f51" secondAttribute="bottom" constant="25" id="eir-CO-0NJ"/>
+                            <constraint firstItem="TPl-kB-xAI" firstAttribute="centerX" secondItem="r9T-bR-rOa" secondAttribute="centerX" id="rOO-Ql-co1"/>
+                            <constraint firstItem="TPl-kB-xAI" firstAttribute="top" secondItem="qbQ-fK-7bC" secondAttribute="bottom" constant="75" id="rRP-Tq-tae"/>
+                            <constraint firstItem="Hw1-Aa-f51" firstAttribute="leading" secondItem="Kiu-CH-2Qy" secondAttribute="leading" constant="25" id="sZE-Ee-JQW"/>
+                            <constraint firstItem="Kiu-CH-2Qy" firstAttribute="trailing" secondItem="Hw1-Aa-f51" secondAttribute="trailing" constant="25" id="zwg-7O-xkW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Kiu-CH-2Qy"/>
+                    </view>
+                    <connections>
+                        <outlet property="animationView" destination="YMA-Q2-RIM" id="kpX-6i-8tB"/>
+                        <outlet property="bottomButton" destination="TPl-kB-xAI" id="nKf-DE-q2H"/>
+                        <outlet property="subtitleLabel" destination="qbQ-fK-7bC" id="XjV-7O-jhN"/>
+                        <outlet property="titleLabel" destination="Hw1-Aa-f51" id="kMy-t4-hfy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2nF-We-gU9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3993" y="800"/>
         </scene>
     </scenes>
 </document>

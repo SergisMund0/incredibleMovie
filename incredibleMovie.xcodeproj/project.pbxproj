@@ -36,6 +36,13 @@
 		EB94178021B8707600B5C845 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94177F21B8707600B5C845 /* LoadingView.swift */; };
 		EB94178221B8A17100B5C845 /* FilterResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94178121B8A17100B5C845 /* FilterResources.swift */; };
 		EB94178421B8A58F00B5C845 /* LoadingResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94178321B8A58F00B5C845 /* LoadingResources.swift */; };
+		EB94178721B92AC100B5C845 /* ErrorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94178621B92AC100B5C845 /* ErrorProtocols.swift */; };
+		EB94178E21B92B4E00B5C845 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94178D21B92B4E00B5C845 /* ErrorViewController.swift */; };
+		EB94179021B92B6100B5C845 /* ErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94178F21B92B6100B5C845 /* ErrorPresenter.swift */; };
+		EB94179421B92B7700B5C845 /* ErrorEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94179321B92B7700B5C845 /* ErrorEntities.swift */; };
+		EB94179621B92B8100B5C845 /* ErrorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94179521B92B8100B5C845 /* ErrorRouter.swift */; };
+		EB94179921B92BE000B5C845 /* ErrorResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94179821B92BE000B5C845 /* ErrorResources.swift */; };
+		EB94179B21B9322B00B5C845 /* oops.json in Resources */ = {isa = PBXBuildFile; fileRef = EB94179A21B9322B00B5C845 /* oops.json */; };
 		EBEDCF9A21B68F6800979618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEDCF9921B68F6800979618 /* AppDelegate.swift */; };
 		EBEDCF9C21B68F6800979618 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEDCF9B21B68F6800979618 /* ViewController.swift */; };
 		EBEDCF9F21B68F6800979618 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBEDCF9D21B68F6800979618 /* Main.storyboard */; };
@@ -88,6 +95,13 @@
 		EB94177F21B8707600B5C845 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		EB94178121B8A17100B5C845 /* FilterResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterResources.swift; sourceTree = "<group>"; };
 		EB94178321B8A58F00B5C845 /* LoadingResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingResources.swift; sourceTree = "<group>"; };
+		EB94178621B92AC100B5C845 /* ErrorProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorProtocols.swift; sourceTree = "<group>"; };
+		EB94178D21B92B4E00B5C845 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
+		EB94178F21B92B6100B5C845 /* ErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenter.swift; sourceTree = "<group>"; };
+		EB94179321B92B7700B5C845 /* ErrorEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorEntities.swift; sourceTree = "<group>"; };
+		EB94179521B92B8100B5C845 /* ErrorRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorRouter.swift; sourceTree = "<group>"; };
+		EB94179821B92BE000B5C845 /* ErrorResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResources.swift; sourceTree = "<group>"; };
+		EB94179A21B9322B00B5C845 /* oops.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = oops.json; sourceTree = "<group>"; };
 		EBEDCF9621B68F6800979618 /* incredibleMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = incredibleMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBEDCF9921B68F6800979618 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBEDCF9B21B68F6800979618 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -295,6 +309,60 @@
 			path = LoadingView;
 			sourceTree = "<group>";
 		};
+		EB94178521B92A6300B5C845 /* ErrorScene */ = {
+			isa = PBXGroup;
+			children = (
+				EB94178621B92AC100B5C845 /* ErrorProtocols.swift */,
+				EB94178C21B92B2300B5C845 /* View */,
+				EB94178B21B92B1B00B5C845 /* Presenter */,
+				EB94178921B92B0800B5C845 /* Entities */,
+				EB94178821B92AFE00B5C845 /* Router */,
+				EB94179721B92BD600B5C845 /* Resources */,
+			);
+			path = ErrorScene;
+			sourceTree = "<group>";
+		};
+		EB94178821B92AFE00B5C845 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				EB94179521B92B8100B5C845 /* ErrorRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		EB94178921B92B0800B5C845 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				EB94179321B92B7700B5C845 /* ErrorEntities.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		EB94178B21B92B1B00B5C845 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				EB94178F21B92B6100B5C845 /* ErrorPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		EB94178C21B92B2300B5C845 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EB94178D21B92B4E00B5C845 /* ErrorViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EB94179721B92BD600B5C845 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EB94179A21B9322B00B5C845 /* oops.json */,
+				EB94179821B92BE000B5C845 /* ErrorResources.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		EBEDCF8D21B68F6800979618 = {
 			isa = PBXGroup;
 			children = (
@@ -320,8 +388,9 @@
 			children = (
 				EB45284021B7041B00213B21 /* Extensions */,
 				EB45282921B6BCBC00213B21 /* Components */,
-				EB45282E21B6FEDE00213B21 /* DetailScene */,
+				EB94178521B92A6300B5C845 /* ErrorScene */,
 				EB45281321B6B0AB00213B21 /* DashboardScene */,
+				EB45282E21B6FEDE00213B21 /* DetailScene */,
 				EBEDCFB921B6913700979618 /* Network */,
 				EBEDCF9921B68F6800979618 /* AppDelegate.swift */,
 				EBEDCF9B21B68F6800979618 /* ViewController.swift */,
@@ -441,6 +510,7 @@
 				EBEDCFA421B68F6900979618 /* LaunchScreen.storyboard in Resources */,
 				EBEDCFA121B68F6900979618 /* Assets.xcassets in Resources */,
 				EBEDCF9F21B68F6800979618 /* Main.storyboard in Resources */,
+				EB94179B21B9322B00B5C845 /* oops.json in Resources */,
 				EB94177E21B8700100B5C845 /* LoadingView.xib in Resources */,
 				EB94177C21B86EF200B5C845 /* loader.json in Resources */,
 			);
@@ -535,14 +605,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB94179021B92B6100B5C845 /* ErrorPresenter.swift in Sources */,
 				EB94177421B7FD9100B5C845 /* FilterView.swift in Sources */,
 				EBEDCF9C21B68F6800979618 /* ViewController.swift in Sources */,
 				EB45280D21B6925100213B21 /* APIRouter.swift in Sources */,
 				EB45282C21B6BD0000213B21 /* MovieViewCell.swift in Sources */,
 				EBEDCF9A21B68F6800979618 /* AppDelegate.swift in Sources */,
 				EB94178021B8707600B5C845 /* LoadingView.swift in Sources */,
+				EB94179421B92B7700B5C845 /* ErrorEntities.swift in Sources */,
 				EB45280921B691F200213B21 /* APIConstants.swift in Sources */,
 				EB45282721B6B6CB00213B21 /* DashboardViewController.swift in Sources */,
+				EB94178721B92AC100B5C845 /* ErrorProtocols.swift in Sources */,
 				EB94178421B8A58F00B5C845 /* LoadingResources.swift in Sources */,
 				EB45280B21B6923C00213B21 /* APIClient.swift in Sources */,
 				EB94177221B7FD5200B5C845 /* FilterViewModel.swift in Sources */,
@@ -552,9 +625,12 @@
 				EB94177921B8338800B5C845 /* MovieCellModel.swift in Sources */,
 				EB45281E21B6B65800213B21 /* DashboardPresenter.swift in Sources */,
 				EB45281A21B6B10600213B21 /* DashboardEntities.swift in Sources */,
+				EB94179921B92BE000B5C845 /* ErrorResources.swift in Sources */,
 				EB45282421B6B68000213B21 /* DashboardProtocols.swift in Sources */,
 				EB45281221B6AEC300213B21 /* APIErrors.swift in Sources */,
+				EB94179621B92B8100B5C845 /* ErrorRouter.swift in Sources */,
 				EB45282221B6B67100213B21 /* DashboardRouter.swift in Sources */,
+				EB94178E21B92B4E00B5C845 /* ErrorViewController.swift in Sources */,
 				EB94178221B8A17100B5C845 /* FilterResources.swift in Sources */,
 				EB45283B21B7030D00213B21 /* DetailEntities.swift in Sources */,
 				EB45284221B7043500213B21 /* UIStoryboard.swift in Sources */,
