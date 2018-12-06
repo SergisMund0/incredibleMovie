@@ -35,6 +35,7 @@
 		EB94177E21B8700100B5C845 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB94177D21B8700100B5C845 /* LoadingView.xib */; };
 		EB94178021B8707600B5C845 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94177F21B8707600B5C845 /* LoadingView.swift */; };
 		EB94178221B8A17100B5C845 /* FilterResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94178121B8A17100B5C845 /* FilterResources.swift */; };
+		EB94178421B8A58F00B5C845 /* LoadingResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94178321B8A58F00B5C845 /* LoadingResources.swift */; };
 		EBEDCF9A21B68F6800979618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEDCF9921B68F6800979618 /* AppDelegate.swift */; };
 		EBEDCF9C21B68F6800979618 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEDCF9B21B68F6800979618 /* ViewController.swift */; };
 		EBEDCF9F21B68F6800979618 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBEDCF9D21B68F6800979618 /* Main.storyboard */; };
@@ -86,6 +87,7 @@
 		EB94177D21B8700100B5C845 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		EB94177F21B8707600B5C845 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		EB94178121B8A17100B5C845 /* FilterResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterResources.swift; sourceTree = "<group>"; };
+		EB94178321B8A58F00B5C845 /* LoadingResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingResources.swift; sourceTree = "<group>"; };
 		EBEDCF9621B68F6800979618 /* incredibleMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = incredibleMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBEDCF9921B68F6800979618 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBEDCF9B21B68F6800979618 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 		EB94177A21B86E2100B5C845 /* LoadingView */ = {
 			isa = PBXGroup;
 			children = (
+				EB94178321B8A58F00B5C845 /* LoadingResources.swift */,
 				EB94177F21B8707600B5C845 /* LoadingView.swift */,
 				EB94177D21B8700100B5C845 /* LoadingView.xib */,
 				EB94177B21B86EF200B5C845 /* loader.json */,
@@ -540,6 +543,7 @@
 				EB94178021B8707600B5C845 /* LoadingView.swift in Sources */,
 				EB45280921B691F200213B21 /* APIConstants.swift in Sources */,
 				EB45282721B6B6CB00213B21 /* DashboardViewController.swift in Sources */,
+				EB94178421B8A58F00B5C845 /* LoadingResources.swift in Sources */,
 				EB45280B21B6923C00213B21 /* APIClient.swift in Sources */,
 				EB94177221B7FD5200B5C845 /* FilterViewModel.swift in Sources */,
 				EB45282021B6B66500213B21 /* DashboardInteractor.swift in Sources */,
