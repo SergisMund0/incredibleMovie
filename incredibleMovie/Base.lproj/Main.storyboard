@@ -116,7 +116,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="IpY-ob-P0Y" firstAttribute="width" secondItem="wM7-xN-g0T" secondAttribute="width" id="0U0-g0-iit"/>
                             <constraint firstItem="7Wj-9L-2Zb" firstAttribute="trailing" secondItem="Cip-Xk-0ie" secondAttribute="trailing" id="Z88-YH-KHb"/>
@@ -166,20 +166,20 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u3Z-d2-7r4">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="149.5"/>
                                                 </imageView>
                                                 <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z4k-8J-NZ2">
-                                                    <rect key="frame" x="0.0" y="80" width="375" height="69.5"/>
+                                                    <rect key="frame" x="0.0" y="80" width="320" height="69.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWf-O8-OLk">
-                                                    <rect key="frame" x="25" y="90" width="335" height="18.5"/>
+                                                    <rect key="frame" x="25" y="90" width="280" height="18.5"/>
                                                     <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="18"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eL7-Pu-1iM">
-                                                    <rect key="frame" x="25" y="118.5" width="335" height="14.5"/>
+                                                    <rect key="frame" x="25" y="118.5" width="280" height="14.5"/>
                                                     <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -236,7 +236,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="tPD-t2-ZGs" firstAttribute="bottom" secondItem="NXa-Gy-i3H" secondAttribute="bottom" constant="50" id="7i0-8N-R7z"/>
                             <constraint firstItem="D3E-Y4-DBr" firstAttribute="leading" secondItem="tPD-t2-ZGs" secondAttribute="leading" id="BoL-AY-SWg"/>
