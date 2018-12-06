@@ -19,4 +19,11 @@ extension Date {
         
         return dateFormatter.string(from: self)
     }
+    
+    var yearString: String {
+        get {
+            let calendar = Calendar.current
+            return "\(calendar.component(.year, from: self))"
+        }
+    }
 }
