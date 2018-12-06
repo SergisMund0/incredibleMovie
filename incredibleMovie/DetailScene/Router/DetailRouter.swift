@@ -8,22 +8,14 @@
 
 import UIKit
 
-final class DetailRouter {
-    
-}
-
-extension DetailRouter: DetailRouterInjection {
-    static func setup(movieCellModel: MovieCellModel) -> UIViewController? {
-        guard var view = UIStoryboard.main.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewInjection else { return nil }
-        
+final class DetailRouter: DetailRouterInjection {
+    static func setup(movieCellModel: MovieCellModel) -> DetailViewInjection? {
+        guard var view = UIStoryboard.main.instantiateViewController(withIdentifier: DetailResources.nibName) as? DetailViewInjection else { return nil }
         var presenter: DetailPresenterInjection & DetailViewDelegate = DetailPresenter()
-        let interactor: DetailInteractorInjection = DetailInteractor()
-        
         view.presenter = presenter
         presenter.view = view
-        presenter.interactor = interactor
         presenter.movieCellModel = movieCellModel
         
-        return view as? UIViewController
+        return view
     }
 }

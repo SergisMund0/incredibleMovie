@@ -8,17 +8,13 @@
 
 import Foundation
 
-final class DetailPresenter {
+final class DetailPresenter: DetailPresenterInjection {
+    // MARK: - Public properties
     var view: DetailViewInjection?
-    var interactor: DetailInteractorInjection?
-    
     var movieCellModel: MovieCellModel?
 }
 
-extension DetailPresenter: DetailPresenterInjection {
-    
-}
-
+// MARK: - DetailViewDelegate
 extension DetailPresenter: DetailViewDelegate {
     func viewDidLoad() {
         guard let movieCellModel = movieCellModel else { return }

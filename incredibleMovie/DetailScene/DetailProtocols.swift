@@ -20,22 +20,9 @@ protocol DetailViewDelegate {
 
 protocol DetailPresenterInjection {
     var view: DetailViewInjection? { get set }
-    var interactor: DetailInteractorInjection? { get set }
     var movieCellModel: MovieCellModel? { get set }
 }
 
-protocol DetailPresenterDelegate {
-    
-}
-
-protocol DetailInteractorInjection {
-    
-}
-
 protocol DetailRouterInjection {
-    static func setup(movieCellModel: MovieCellModel) -> UIViewController?
-}
-
-protocol DetailRotuerDelegate {
-    
+    static func setup(movieCellModel: MovieCellModel) -> DetailViewInjection?
 }
