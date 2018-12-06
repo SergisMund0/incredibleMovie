@@ -21,6 +21,34 @@ struct DashboardDelegateModel {
     let minimumSelectedDate: String
     let maximumSelectedDate: String
     let selectedMovieCellModel: MovieCellModel
+    
+    init(minimumSelectedDate: String = FilterResources.minimumYearNumberString,
+         maximumSelectedDate: String = FilterResources.maximumYearNumberString,
+         selectedMovieCellModel: MovieCellModel) {
+        
+        self.minimumSelectedDate = minimumSelectedDate
+        self.maximumSelectedDate = maximumSelectedDate
+        self.selectedMovieCellModel = selectedMovieCellModel
+    }
+}
+
+// We use this model to apply the filters
+struct DateDataModel {
+    let dateString: String
+    let dateIndex: Int
+}
+
+// We use this model to apply the filters
+struct DateRange {
+    let minimumYearDate: String
+    let maximumYearDate: String
+    
+    init(minimumYearDate: String = FilterResources.minimumYearNumberString,
+         maximumYearDate: String = FilterResources.maximumYearNumberString) {
+        
+        self.minimumYearDate = "\(minimumYearDate)-01-01"
+        self.maximumYearDate = "\(maximumYearDate)-01-01"
+    }
 }
 
 // The data retrieved from the Server for the Popular Movies
