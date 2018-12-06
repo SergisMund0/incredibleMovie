@@ -6,4 +6,17 @@
 //  Copyright © 2018 Sergio Garre. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+struct FilterResources {
+    static let minimumYearTitleString = "MINIMUM YEAR"
+    static let maximumYearTitleString = "MAXIMUM YEAR"
+    
+    static let minimumYearNumberString = "1960"
+    static let maximumYearNumberString = "2018"
+    
+    static let minimumYearNumber: CGFloat = 1930
+    static let maximumYearNumber: CGFloat = 2018
+    
+    static let nibName = "FilterView"
+}

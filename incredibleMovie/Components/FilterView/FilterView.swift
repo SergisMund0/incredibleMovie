@@ -14,18 +14,19 @@ protocol FilterViewDelegate: class {
 }
 
 final class FilterView: UIView {
+    // MARK: - Public properties
+    weak var delegate: FilterViewDelegate?
+    
+    // MARK: - Private properties
     @IBOutlet private var contentView: UIView!
     @IBOutlet weak private var leadingLabel: UILabel!
     @IBOutlet weak private var trailingLabel: UILabel!
     @IBOutlet weak private var rangeSlider: RangeSeekSlider!
     
-    private var minimumSelectedValue = "0"
-    private var maximumSelectedValue = "0"
-    
-    weak var delegate: FilterViewDelegate?
-    
-    private var filterViewModel: FilterViewModel?
+    private var minimumSelectedValue = FilterResources.minimumYearNumberString
+    private var maximumSelectedValue = FilterResources.maximumYearNumberString
 
+    // MARK: - UIView
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -37,26 +38,24 @@ final class FilterView: UIView {
     }
 
     private func commonInit() {
-        Bundle.main.loadNibNamed("FilterView", owner: self, options: nil)
+        Bundle.main.loadNibNamed(FilterResources.nibName, owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
         rangeSlider.delegate = self
     }
     
     override func awakeFromNib() {
-        setupSlider()
+        setupSlider(FilterViewModel())
     }
 
+    // MARK: - Public functions
     func setup(viewModel: FilterViewModel) {
-        filterViewModel = viewModel
-        setupSlider()
+        setupSlider(viewModel)
     }
     
-    private func setupSlider() {
-        guard let filterViewModel = filterViewModel else { return }
-        
+    // MARK: - Private functions
+    private func setupSlider(_ filterViewModel: FilterViewModel) {
         leadingLabel.text = filterViewModel.leadingTitle
         trailingLabel.text = filterViewModel.trailingTitle
         rangeSlider.minValue = filterViewModel.leadingValue
@@ -66,6 +65,7 @@ final class FilterView: UIView {
     }
 }
 
+// MARK: - RangeSeekSliderDelegate
 extension FilterView: RangeSeekSliderDelegate {
     func didEndTouches(in slider: RangeSeekSlider) {
         delegate?.sliderDidEndEditing(minValue: minimumSelectedValue, maxValue: maximumSelectedValue)
