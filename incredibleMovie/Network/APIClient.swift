@@ -14,15 +14,13 @@ final class APIClient {
         Alamofire.request(APIRouter.popularMovies(page: page)).responseData { (responseData) in
             switch responseData.result {
             case .success:
-                let jsonDecoder = JSONDecoder()
                 if let data = responseData.data {
-                    
                     do {
                         let decoder = JSONDecoder()
                         let model = try decoder.decode(PopularMovies.self, from: data)
                         completion(model, nil)
                     } catch let error {
-                        print(error)
+                        print("Error decoding data: \(error.localizedDescription)")
                     }
                 }
             case .failure(let error):
