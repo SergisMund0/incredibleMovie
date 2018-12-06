@@ -33,12 +33,6 @@ struct DashboardDelegateModel {
 }
 
 // We use this model to apply the filters
-struct DateDataModel {
-    let dateString: String
-    let dateIndex: Int
-}
-
-// We use this model to apply the filters
 struct DateRange {
     let minimumYearDate: String
     let maximumYearDate: String

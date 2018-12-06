@@ -11,23 +11,35 @@ import UIKit
 protocol DashboardViewInjection {
     var presenter: DashboardViewDelegate? { get set }
 
-    // We need a separate method in order to create the initial content in the Dashboard
-    func initialDataDidLoad(dashboardInjectionModel: DashboardInjectionModel)
-    // Once the initial content is loaded, the view receives the updates through this method
+    /// Notifies the view about state changes
+    ///
+    /// - Parameter dashboardInjectionModel: The actual view state for the updates
     func viewDidReceiveUpdates(dashboardInjectionModel: DashboardInjectionModel)
+    
+    /// Notifies the view to show the loading view
+    ///
+    /// - Parameter show: true if the view needs to show the loading view
+    func showLoader(_ show: Bool)
 }
 
 protocol DashboardViewDelegate {
-    func viewDidLoad()
-    
-    // Each time that the user arrives to the bottom a event
-    // is fired. (We use this for the infinite scrolling with pagination)
-    func viewDidScrollToBottom()
+    func viewDidLoad(dateRange: DateRange)
+
+    /// Notifies the presenter that the scroll
+    /// reached the bottom of the view
+    ///
+    /// - Parameter dateRange: A range of dates to apply the filter
+    func viewDidScrollToBottom(dateRange: DateRange)
     
     func didSelectItem(_ model: DashboardDelegateModel)
+
+    /// Notifies the presenter to filter the current content
+    ///
+    /// - Parameter rangeDate: A range of dates to apply the filter
+    func sliderDidEndEditing(rangeDate: DateRange)
     
-    // User selected a filter
-    func filterDidFinish(_ model: DashboardDelegateModel)
+    /// Notifies the presenter that the scroll started
+    func scrollViewWillBeginDragging()
 }
 
 protocol DashboardPresenterInjection {
@@ -36,6 +48,8 @@ protocol DashboardPresenterInjection {
 }
 
 protocol DashboardInteractorInjection {
+    typealias ArrayStringDates = [String]
+    typealias DateRangeType = (minDate: String, maxDate: String)
     
     /// Retrieve popular movies from "The Movie Database API"
     ///
@@ -44,11 +58,19 @@ protocol DashboardInteractorInjection {
     ///   - completion: One of the properties will have content depending of the server response
     func popularMovies(page: Int, completion: @escaping (_ entity: PopularMovies?, _ error: Error?) -> Void)
     
-    /// <#Description#>
+    /// This function returns a Date range
     ///
-    /// - Parameter releaseDates: <#releaseDates description#>
-    /// - Returns: <#return value description#>
-    func releaseDateRange(_ releaseDates: ReleaseDates) -> (minDate: String, maxDate: String)
+    /// - Parameter stringDates: String dates
+    /// - Returns: A tuple with the minimum and maximum value
+    func getDateRange(from stringDates: [String]) -> DateRangeType
+    
+    /// This function applies a filter to an array of dates and returns the array filtered
+    ///
+    /// - Parameters:
+    ///   - stringDates: The array of strings to filter
+    ///   - dateRange: A date range to apply
+    /// - Returns: The array filtered
+    func filterStringDates(_ stringDates: [String], byDateRange dateRange: DateRange) -> ArrayStringDates?
 }
 
 protocol DashboardRouterInjection {

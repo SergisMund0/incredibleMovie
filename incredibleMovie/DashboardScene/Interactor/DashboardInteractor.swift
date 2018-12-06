@@ -8,10 +8,7 @@
 
 import Foundation
 
-final class DashboardInteractor {
-}
-
-extension DashboardInteractor: DashboardInteractorInjection {
+final class DashboardInteractor: DashboardInteractorInjection {
     func popularMovies(page: Int, completion: @escaping (_ entity: PopularMovies?, _ error: Error?) -> Void) {
         APIClient.popularMovies(page: page) { (popularMovies, error) in
             if let error = error {
@@ -24,46 +21,46 @@ extension DashboardInteractor: DashboardInteractorInjection {
         }
     }
     
-    func releaseDateRange(_ releaseDates: ReleaseDates) -> (minDate: String, maxDate: String) {
-        var datesFiltered = [Date]()
+    func getDateRange(from stringDates: [String]) -> DateRangeType {
+        // Apply format in order to be able to make the operations
+        var arrayDates = [Date]()
         
-        for releaseDate in releaseDates.dates {
-            if let formattedDate = formatStringToDate(releaseDate) {
-                datesFiltered.append(formattedDate)
-            }
+        for stringDate in stringDates {
+            arrayDates.append(stringDate.toDate())
         }
         
-        if let maxDate = datesFiltered.max(),
-            let minDate = datesFiltered.min() {
+        // Gets the dates maximum and minimum from array
+        if let maximumDate = arrayDates.max(),
+            let minimumDate = arrayDates.min() {
             
-            return (minDate: getYearFromDate(minDate), maxDate: getYearFromDate(maxDate))
+            return (minDate: minimumDate.yearString, maxDate: maximumDate.yearString)
         }
         
-        return (minDate: "", maxDate: "")
+        return (minDate: FilterResources.minimumYearNumberString, maxDate: FilterResources.maximumYearNumberString)
     }
     
-    private func formatStringToDate(_ string: String) -> Date? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+    func filterStringDates(_ stringDates: [String], byDateRange dateRange: DateRange) -> ArrayStringDates? {
+        // Apply format in order to be able to make the operations
+        var arrayDates = [Date]()
+        let minimumDateFormatted = dateRange.minimumYearDate.toDate()
+        let maximumDateFormatted = dateRange.maximumYearDate.toDate()
         
-        return dateFormatter.date(from: string)
-    }
-    
-    private func formatDateToString(_ date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        for stringDate in stringDates {
+            arrayDates.append(stringDate.toDate())
+        }
         
-        return dateFormatter.string(from: date)
-    }
-    
-    private func getYearFromDate(_ date: Date) -> String {
-        let calendar = Calendar.current
+        // Apply the filter
+        let filteredArrayDates = arrayDates.filter { ($0 >= minimumDateFormatted && $0 <= maximumDateFormatted) }
         
-        let year = calendar.component(.year, from: date)
-        return "\(year)"
+        // Format again to return the values
+        var stringArrayDates = [String]()
+        for filteredArrayDate in filteredArrayDates {
+            stringArrayDates.append(filteredArrayDate.toString())
+        }
+        
+        if stringArrayDates.count>0 {
+            return stringArrayDates
+        }
+        return nil
     }
-}
-
-struct ReleaseDates {
-    let dates: [String]
 }
