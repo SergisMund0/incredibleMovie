@@ -18,27 +18,24 @@ final class DashboardViewController: UIViewController {
     @IBOutlet weak private var filterView: FilterView!
     @IBOutlet weak private var tableView: UITableView!
     @IBOutlet weak private var filterViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var loadingView: LoadingView!
+    
+    // We need to hold this value in order to send to the presenter
+    private var currentDateRange = DateRange()
     
     // MARK: - UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setup()
-        presenter?.viewDidLoad()
+        presenter?.viewDidLoad(dateRange: DateRange())
     }
     
     private func setup() {
+        filterViewHeightConstraint.constant = 0
         tableView.delegate = self
         tableView.dataSource = self
         filterView.delegate = self
-    }
-    
-    // Call this function when the view needs to update its content
-    private func updateViewState() {
-        guard let dashboardViewModel = dashboardViewModel else { return }
-        
-        filterView.setup(viewModel: dashboardViewModel.filterViewModel)
-        tableView.reloadData()
     }
     
     // MARK: - Actions
@@ -58,23 +55,23 @@ final class DashboardViewController: UIViewController {
 
 // MARK: - DashboardViewInjection
 extension DashboardViewController: DashboardViewInjection {
-    func initialDataDidLoad(dashboardInjectionModel: DashboardInjectionModel) {
-        // Creates the initial content
+    func viewDidReceiveUpdates(dashboardInjectionModel: DashboardInjectionModel) {
         dashboardViewModel = dashboardInjectionModel
-        updateViewState()
+        tableView.reloadData()
     }
     
-    func viewDidReceiveUpdates(dashboardInjectionModel: DashboardInjectionModel) {
-        // Add content to the existing model
-        dashboardViewModel?.movieCellModel.append(contentsOf: dashboardInjectionModel.movieCellModel)
-        updateViewState()
+    func showLoader(_ show: Bool) {
+        loadingView.isHidden = !show
     }
 }
 
 // MARK: - FilterViewDelegate
 extension DashboardViewController: FilterViewDelegate {
     func sliderDidEndEditing(minValue: String, maxValue: String) {
+        currentDateRange = DateRange(minimumYearDate: minValue, maximumYearDate: maxValue)
+        let dateRange = DateRange(minimumYearDate: minValue, maximumYearDate: maxValue)
         
+        presenter?.sliderDidEndEditing(rangeDate: dateRange)
     }
 }
 
@@ -87,22 +84,16 @@ extension DashboardViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieViewCell", for: indexPath) as? MovieViewCell,
-            let dashboardViewModel = dashboardViewModel else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieCellResources.nibName, for: indexPath) as? MovieViewCell,
+            var dashboardViewModel = dashboardViewModel else {
                 return UITableViewCell()
         }
         
-        if let url = URL(string: "https://image.tmdb.org/t/p/w1280/" + dashboardViewModel.movieCellModel[indexPath.row].backgroundImageURL) {
-            cell.backgroundImage.af_setImage(withURL: url)
-        }
+        let movieCellModel = dashboardViewModel.movieCellModel[indexPath.row]
+        cell.setup(movieCellModel)
         
-        cell.titleLabel.text = dashboardViewModel.movieCellModel[indexPath.row].title
-        cell.subtitleLabel.text = dashboardViewModel.movieCellModel[indexPath.row].releaseDate
-        
-        // If the user arrived to the bottom and there is more content to load, call the presenter
-        // in order to get the additional data
-        if indexPath.row == dashboardViewModel.movieCellModel.count-1 {
-            presenter?.viewDidScrollToBottom()
+        if tableViewScrollIsAtTheBottom() {
+            presenter?.viewDidScrollToBottom(dateRange: currentDateRange)
         }
         
         return cell
@@ -119,8 +110,22 @@ extension DashboardViewController: UITableViewDelegate {
         }
         
         dashboardViewModel.movieCellModel[indexPath.row].backgroundImageData = currentCell.backgroundImage?.image
-        let dashboardDelegateModel = DashboardDelegateModel(minimumSelectedDate: "", maximumSelectedDate: "", selectedMovieCellModel: dashboardViewModel.movieCellModel[indexPath.row])
+        let dashboardDelegateModel = DashboardDelegateModel(selectedMovieCellModel: dashboardViewModel.movieCellModel[indexPath.row])
         
         presenter.didSelectItem(dashboardDelegateModel)
+    }
+}
+
+// MARK: - UIScrollViewDelegate
+extension DashboardViewController: UIScrollViewDelegate {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        presenter?.scrollViewWillBeginDragging()
+    }
+}
+
+// MARK: - Helpers
+extension DashboardViewController {
+    private func tableViewScrollIsAtTheBottom() -> Bool {
+        return tableView.contentOffset.y >= (tableView.contentSize.height - tableView.frame.size.height)
     }
 }
