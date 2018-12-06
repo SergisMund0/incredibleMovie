@@ -13,10 +13,10 @@ struct FilterResources {
     static let maximumYearTitleString = "MAXIMUM YEAR"
     
     static let minimumYearNumberString = "1960"
-    static let maximumYearNumberString = "2018"
+    static let maximumYearNumberString = "2019"
     
     static let minimumYearNumber: CGFloat = 1930
-    static let maximumYearNumber: CGFloat = 2018
+    static let maximumYearNumber: CGFloat = 2019
     
     static let nibName = "FilterView"
 }
