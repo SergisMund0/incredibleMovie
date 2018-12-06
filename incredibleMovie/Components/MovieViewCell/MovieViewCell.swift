@@ -9,14 +9,34 @@
 import UIKit
 import AlamofireImage
 
-class MovieViewCell: UITableViewCell {
+final class MovieViewCell: UITableViewCell {
     // MARK: - Public properties
     @IBOutlet weak var backgroundImage: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var subtitleLabel: UILabel!
+    
+    // MARK: - Private properties
+    @IBOutlet weak private var titleLabel: UILabel!
+    @IBOutlet weak private var subtitleLabel: UILabel!
     
     // MARK: - UIView
     override func awakeFromNib() {
+        commonInit()
+    }
+    
+    private func commonInit() {
         backgroundImage.contentMode = .scaleAspectFill
+    }
+    
+    // MARK: - Public functions
+    func setup(_ movieCellModel: MovieCellModel) {
+        titleLabel.text = movieCellModel.title
+        subtitleLabel.text = movieCellModel.releaseDate
+        setupBackgroundImage(urlString: movieCellModel.backgroundImageURL)
+    }
+    
+    // MARK: - Private functions
+    private func setupBackgroundImage(urlString: String) {
+        if let url = URL(string: "https://image.tmdb.org/t/p/w1280/" + urlString) {
+            backgroundImage.af_setImage(withURL: url)
+        }
     }
 }
