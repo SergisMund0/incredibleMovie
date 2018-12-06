@@ -18,7 +18,8 @@ final class DashboardViewController: UIViewController {
     @IBOutlet weak private var filterView: FilterView!
     @IBOutlet weak private var tableView: UITableView!
     @IBOutlet weak private var filterViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var loadingView: LoadingView!
+    @IBOutlet weak private var loadingView: LoadingView!
+    @IBOutlet weak private var filterButton: UIButton!
     
     // We need to hold this value in order to send to the presenter
     private var currentDateRange = DateRange()
@@ -43,13 +44,14 @@ final class DashboardViewController: UIViewController {
     /// When the user presses the bottom button, it animates the filter view
     @IBAction func bottomButtonAction(_ sender: UIButton) {
         let dynamicConstant: CGFloat = filterViewHeightConstraint.constant == 100 ? 0 : 100
-        
-        let animator = UIViewPropertyAnimator(duration: 0.25, curve: .linear) {
+
+        UIView.animate(withDuration: 0.25, delay: 0, options: .curveLinear, animations: {
             self.filterViewHeightConstraint.constant = dynamicConstant
             self.view.layoutIfNeeded()
+        }) { (value) in
+            let dynamicTitle = dynamicConstant == 100 ? "HIDE FILTER" : "SHOW FILTER"
+            self.filterButton.setTitle(dynamicTitle, for: .normal)
         }
-
-        animator.startAnimation()
     }
 }
 

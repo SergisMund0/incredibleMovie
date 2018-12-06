@@ -23,14 +23,14 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xtu-k1-o4r">
                     <rect key="frame" x="62.5" y="233.5" width="250" height="200"/>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="NJn-WC-4yi"/>
                         <constraint firstAttribute="width" constant="250" id="gAs-Ek-eTt"/>
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
             <constraints>
                 <constraint firstItem="xtu-k1-o4r" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="SBo-Zc-Zk0"/>
                 <constraint firstItem="xtu-k1-o4r" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="s5x-rM-Pvy"/>

@@ -9,8 +9,8 @@
 import UIKit
 
 struct FilterResources {
-    static let minimumYearTitleString = "MINIMUM YEAR"
-    static let maximumYearTitleString = "MAXIMUM YEAR"
+    static let minimumYearTitleString = "MIN YEAR"
+    static let maximumYearTitleString = "MAX YEAR"
     
     static let minimumYearNumberString = "1960"
     static let maximumYearNumberString = "2019"
