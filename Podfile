@@ -7,9 +7,14 @@ target 'incredibleMovie' do
 
   # Pods for incredibleMovie
 
+  #Networking
   pod 'Alamofire', '~> 4.7'
   pod 'AlamofireImage', '~> 3.3'
+  
+  # Component
   pod 'RangeSeekSlider'
+  
+  # Animation
   pod 'lottie-ios'
 
   target 'incredibleMovieTests' do
