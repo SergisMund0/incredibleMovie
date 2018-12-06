@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-import AlamofireImage
 
 final class APIClient {
     static func popularMovies(page: Int, completion: @escaping (_ entity: PopularMovies?, _ error: Error?) -> Void) {
@@ -30,9 +29,5 @@ final class APIClient {
                 completion(nil, error)
             }
         }
-    }
-    
-    static func fetchImage(imageViewReference: UIImageView, path: String, completion: @escaping (PopularMovies) -> Void) {
-        imageViewReference.af_setImage(withURLRequest: APIRouter.fetchImage(path: path))
     }
 }

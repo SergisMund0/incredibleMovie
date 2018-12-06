@@ -35,7 +35,7 @@ final class MovieViewCell: UITableViewCell {
     
     // MARK: - Private functions
     private func setupBackgroundImage(urlString: String) {
-        if let url = URL(string: "https://image.tmdb.org/t/p/w1280/" + urlString) {
+        if let url = URL(string: APIRouter.fetchImage(path: urlString, imageSize: .normal).path) {
             backgroundImage.af_setImage(withURL: url)
         }
     }

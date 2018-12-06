@@ -11,6 +11,7 @@ import Foundation
 struct APIConstants {
     struct Server {
         static let baseURL = "https://api.themoviedb.org/3"
+        static let baseImageURL = "https://image.tmdb.org/"
         static let apiKey = "b93afcef54efbfc201e00ee14d104110"
     }
     
@@ -30,4 +31,8 @@ enum HTTPHeaderField: String {
 
 enum ContentType: String {
     case json = "application/json"
+}
+
+enum ImageSize : String {
+    case normal = "w1280"
 }
