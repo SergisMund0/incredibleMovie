@@ -1,12 +1,12 @@
 # incredibleMovie   <img src="https://github.com/SergisMund0/assets/blob/master/movieIconLarge.png" width="55" height="55">
 
-Application written in Swift and designed using clean architecture. Get popular content from [theMovieDB](https://www.themoviedb.org) and play filtering the content :)
+Application written in Swift and designed using clean architecture. Get popular content from [theMovieDB](https://www.themoviedb.org) and play filtering the content :grin:
 
-To be sure this project will be running in your laptop, please run "pod install" in order to get all the dependencies.
+:warning: Please run "pod install" in order to get all the dependencies.
 
-## Application overview
+## Application overview :rocket:
 
-### Dashboard & Filtering
+### Dashboard & Filtering 
 <img src="https://github.com/SergisMund0/assets/blob/master/movieDashboard.png" width="400" height="700"><img src="https://github.com/SergisMund0/assets/blob/master/movieFilter.png" width="400" height="700">
 
 Once the application loads, you are redirected to the dashboard. In this scene you can easily apply a filter over the existing content
@@ -14,7 +14,7 @@ or you can just retrieve more movies just scrolling down. The application has in
 
 You can hide and show the filter view pressing within the filter button then you can apply a range using the slider.
 
-Note: If you have applied a filter previously and you do scroll down, the server will respond with the next movies
+:mag: Note: If you have applied a filter previously and you do scroll down, the server will respond with the next movies
 but you will see the content filtered respecting the filter applied before. 
 
 Play with the filter component and see how the content reloads locally. :smiley:
@@ -29,7 +29,7 @@ modal scene will be presented with the description of the error.
 
 ## Architecture and implementation details
 
-The application is written in Swift and designed using VIPER architecture. The functionality is divided in different scenes:
+The application is written in Swift and designed using VIPER :heart: architecture. The functionality is divided in different scenes:
 
 - Dashboard scene
 
