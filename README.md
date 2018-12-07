@@ -1,5 +1,9 @@
 # incredibleMovie   <img src="https://github.com/SergisMund0/assets/blob/master/movieIconLarge.png" width="55" height="55">
 
+Application written in Swift and designed using clean architecture. Get popular content from [theMovieDB](https://www.themoviedb.org) and play filtering the content :)
+
+To be sure this project will be running in your laptop, please run "pod install" in order to get all the dependencies.
+
 ## Application overview
 
 ### Dashboard & Filtering
