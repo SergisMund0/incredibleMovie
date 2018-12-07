@@ -139,14 +139,11 @@ extension DashboardPresenter {
         // Delete filtered movies array's content
         filteredMoviewCells.removeAll()
         
-        //var dateDataModel = [DateDataModel]()
         var dateDataModel = [String]()
         for element in totalMoviewCells {
-            //let temporalDateDataModel = DateDataModel(dateString: element.releaseDate)
             dateDataModel.append(element.releaseDate)
         }
         
-        //if let filteredDates = interactor?.filterByDateRange(dateDataModel, dateRange: rangeDate) {
         if let filteredDates = interactor?.filterStringDates(dateDataModel, byDateRange: rangeDate) {
             for filteredDate in filteredDates {
                 let elementFiltered = totalMoviewCells.filter( { $0.releaseDate == filteredDate })

@@ -40,8 +40,8 @@ struct DateRange {
     init(minimumYearDate: String = FilterResources.minimumYearNumberString,
          maximumYearDate: String = FilterResources.maximumYearNumberString) {
         
-        self.minimumYearDate = "\(minimumYearDate)-01-01"
-        self.maximumYearDate = "\(maximumYearDate)-01-01"
+        self.minimumYearDate = "\(minimumYearDate)-01-02"
+        self.maximumYearDate = "\(maximumYearDate)-12-28"
     }
 }
 
