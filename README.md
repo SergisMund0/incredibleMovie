@@ -20,7 +20,7 @@ but you will see the content filtered respecting the filter applied before.
 Play with the filter component and see how the content reloads locally. :smiley:
 
 ### Detail & Error State
-<img src="https://github.com/SergisMund0/assets/blob/master/movieDetail.png" width="400" height="700"><img src="https://github.com/SergisMund0/assets/blob/master/movieError.png" width="400" height="700">
+<img src="https://github.com/SergisMund0/assets/blob/master/movieDetailStar.png" width="400" height="700"><img src="https://github.com/SergisMund0/assets/blob/master/movieError.png" width="400" height="700">
 
 You can access to the overview description clicking within one content. 
 
