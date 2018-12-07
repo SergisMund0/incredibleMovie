@@ -61,6 +61,13 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LT5-G9-8eb" userLabel="Content Container">
                                                 <rect key="frame" x="0.0" y="400" width="320" height="158.5"/>
                                                 <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="GUT-zq-WJK">
+                                                        <rect key="frame" x="67.5" y="67" width="15" height="15"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="15" id="NHk-Qn-pNc"/>
+                                                            <constraint firstAttribute="height" constant="15" id="aIx-OR-Hnw"/>
+                                                        </constraints>
+                                                    </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rXd-HH-0Bf">
                                                         <rect key="frame" x="25" y="25" width="75.5" height="26.5"/>
                                                         <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="26"/>
@@ -68,7 +75,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZs-hc-iig">
-                                                        <rect key="frame" x="25" y="66.5" width="75.5" height="17.5"/>
+                                                        <rect key="frame" x="25" y="66.5" width="35.5" height="17.5"/>
                                                         <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="15"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -82,15 +89,16 @@
                                                 </subviews>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                 <constraints>
+                                                    <constraint firstItem="GUT-zq-WJK" firstAttribute="leading" secondItem="FZs-hc-iig" secondAttribute="trailing" constant="7" id="8Ly-zr-x2c"/>
                                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rXd-HH-0Bf" secondAttribute="trailing" constant="55" id="9ML-YK-OMn"/>
                                                     <constraint firstItem="Cls-TL-dUd" firstAttribute="bottom" secondItem="LT5-G9-8eb" secondAttribute="bottom" constant="-25" id="Fn1-d3-sW2"/>
                                                     <constraint firstItem="Cls-TL-dUd" firstAttribute="leading" secondItem="FZs-hc-iig" secondAttribute="leading" id="HU8-OG-mOp"/>
                                                     <constraint firstItem="Cls-TL-dUd" firstAttribute="top" secondItem="FZs-hc-iig" secondAttribute="bottom" constant="30" id="Lre-sK-0RW"/>
                                                     <constraint firstItem="rXd-HH-0Bf" firstAttribute="top" secondItem="LT5-G9-8eb" secondAttribute="top" constant="25" id="M2d-IM-asg"/>
-                                                    <constraint firstItem="FZs-hc-iig" firstAttribute="trailing" secondItem="rXd-HH-0Bf" secondAttribute="trailing" id="RCY-oU-3z7"/>
                                                     <constraint firstItem="FZs-hc-iig" firstAttribute="leading" secondItem="rXd-HH-0Bf" secondAttribute="leading" id="Rho-iI-7h6"/>
                                                     <constraint firstItem="rXd-HH-0Bf" firstAttribute="leading" secondItem="LT5-G9-8eb" secondAttribute="leading" constant="25" id="Sjg-xY-fBU"/>
                                                     <constraint firstAttribute="trailing" secondItem="Cls-TL-dUd" secondAttribute="trailing" constant="25" id="kmE-t8-D2S"/>
+                                                    <constraint firstItem="GUT-zq-WJK" firstAttribute="centerY" secondItem="FZs-hc-iig" secondAttribute="centerY" constant="-1" id="l6Q-NN-KEi"/>
                                                     <constraint firstItem="FZs-hc-iig" firstAttribute="top" secondItem="rXd-HH-0Bf" secondAttribute="bottom" constant="15" id="xW2-3R-LEt"/>
                                                 </constraints>
                                             </view>
@@ -356,4 +364,7 @@
             <point key="canvasLocation" x="3993" y="800"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="star" width="32" height="32"/>
+    </resources>
 </document>

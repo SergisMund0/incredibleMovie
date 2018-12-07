@@ -106,7 +106,7 @@ extension DashboardPresenter {
     private func bindMovies(_ popularMovies: PopularMovies) {
         for movie in popularMovies.results {
             if let backgroundImageURL = movie.backdropPath {
-                let movieInjectionCell = MovieCellModel(backgroundImageURL: backgroundImageURL, title: movie.name, releaseDate: movie.firstAirDate, backgroundImageData: nil, overviewContent: movie.overview, rating: "\(movie.popularity)")
+                let movieInjectionCell = MovieCellModel(backgroundImageURL: backgroundImageURL, title: movie.name, releaseDate: movie.firstAirDate, backgroundImageData: nil, overviewContent: movie.overview, rating: "\(movie.voteAverage)")
                 self.totalMoviewCells.append(movieInjectionCell)
             }
         }
