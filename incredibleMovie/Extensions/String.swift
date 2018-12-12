@@ -13,7 +13,7 @@ extension String {
     ///
     /// - Parameter format: The format to apply. It should respect the ISO date formats
     /// - Returns: Date object
-    func toDate(format: String = "yyy-MM-dd") -> Date {
+    func toDate(format: String = "yyyy-MM-dd") -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
         
