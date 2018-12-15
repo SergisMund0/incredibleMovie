@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol DashboardViewInjection {
+protocol DashboardViewInjection: class {
     var presenter: DashboardViewDelegate? { get set }
 
     /// Notifies the view about state changes
@@ -43,8 +43,8 @@ protocol DashboardViewDelegate {
 }
 
 protocol DashboardPresenterInjection {
-    var view: DashboardViewInjection? { get set }
-    var interactor: DashboardInteractorInjection? { get set }
+    var view: DashboardViewInjection { get }
+    var interactor: DashboardInteractorInjection { get }
 }
 
 protocol DashboardInteractorInjection {

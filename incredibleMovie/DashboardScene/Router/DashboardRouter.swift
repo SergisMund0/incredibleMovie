@@ -11,14 +11,12 @@ import UIKit
 final class DashboardRouter: DashboardRouterInjection {
     static func setup() -> UIViewController? {
         let navigationController = UIStoryboard.main.instantiateViewController(withIdentifier: "NavigationController")
-        guard var view = navigationController.children.first as? DashboardViewInjection else { return nil }
+        guard let view = navigationController.children.first as? DashboardViewInjection else { return nil }
         
-        var presenter: DashboardPresenterInjection & DashboardViewDelegate = DashboardPresenter()
         let interactor: DashboardInteractorInjection = DashboardInteractor()
+        let presenter: DashboardPresenterInjection & DashboardViewDelegate = DashboardPresenter(view: view, interactor: interactor)
         
         view.presenter = presenter
-        presenter.view = view
-        presenter.interactor = interactor
         
         return navigationController
     }
