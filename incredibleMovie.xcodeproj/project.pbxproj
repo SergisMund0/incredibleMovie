@@ -26,6 +26,7 @@
 		EB45283D21B7031800213B21 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB45283C21B7031800213B21 /* DetailRouter.swift */; };
 		EB45283F21B7035700213B21 /* DetailProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB45283E21B7035700213B21 /* DetailProtocols.swift */; };
 		EB45284221B7043500213B21 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB45284121B7043500213B21 /* UIStoryboard.swift */; };
+		EB91A60221C19810004DA2CD /* DashboardInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91A60121C19810004DA2CD /* DashboardInteractorTests.swift */; };
 		EB94177221B7FD5200B5C845 /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94177121B7FD5200B5C845 /* FilterViewModel.swift */; };
 		EB94177421B7FD9100B5C845 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94177321B7FD9100B5C845 /* FilterView.swift */; };
 		EB94177621B7FDD700B5C845 /* FilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB94177521B7FDD700B5C845 /* FilterView.xib */; };
@@ -88,6 +89,7 @@
 		EB45283C21B7031800213B21 /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
 		EB45283E21B7035700213B21 /* DetailProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProtocols.swift; sourceTree = "<group>"; };
 		EB45284121B7043500213B21 /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
+		EB91A60121C19810004DA2CD /* DashboardInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardInteractorTests.swift; sourceTree = "<group>"; };
 		EB94177121B7FD5200B5C845 /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
 		EB94177321B7FD9100B5C845 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		EB94177521B7FDD700B5C845 /* FilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterView.xib; sourceTree = "<group>"; };
@@ -414,6 +416,7 @@
 		EBEDCFAD21B68F6900979618 /* incredibleMovieTests */ = {
 			isa = PBXGroup;
 			children = (
+				EB91A60121C19810004DA2CD /* DashboardInteractorTests.swift */,
 				EBEDCFAE21B68F6900979618 /* incredibleMovieTests.swift */,
 				EBEDCFB021B68F6900979618 /* Info.plist */,
 			);
@@ -657,6 +660,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBEDCFAF21B68F6900979618 /* incredibleMovieTests.swift in Sources */,
+				EB91A60221C19810004DA2CD /* DashboardInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
