@@ -11,8 +11,8 @@ import UIKit
 
 final class DashboardPresenter: DashboardPresenterInjection {
     // MARK: - Public properties
-    var view: DashboardViewInjection?
-    var interactor: DashboardInteractorInjection?
+    unowned var view: DashboardViewInjection
+    var interactor: DashboardInteractorInjection
     
     // MARK: - Private properties
     
@@ -28,6 +28,11 @@ final class DashboardPresenter: DashboardPresenterInjection {
     private var filteredMoviewCells = [MovieCellModel]()
     // This variable represents the total movies retrieved from the server
     private var totalMoviewCells = [MovieCellModel]()
+    
+    init(view: DashboardViewInjection, interactor: DashboardInteractorInjection) {
+        self.view = view
+        self.interactor = interactor
+    }
     
     private func showErrorScene(errorDescription: String) {
         let errorViewModel = ErrorViewInjectionModel(subtitle: errorDescription)
@@ -58,7 +63,7 @@ extension DashboardPresenter: DashboardViewDelegate {
         filteredContent = true
         // If there is content to filter
         if let filteredContent = filterContent(totalMoviewCells, rangeDate: rangeDate) {
-            view?.viewDidReceiveUpdates(dashboardInjectionModel: filteredContent)
+            view.viewDidReceiveUpdates(dashboardInjectionModel: filteredContent)
         }
     }
     
@@ -80,13 +85,13 @@ extension DashboardPresenter: DashboardViewDelegate {
 // MARK: - Helpers
 extension DashboardPresenter {
     private func popularMovies(page: Int, dateRange: DateRange) {
-        guard let interactor = interactor, let view = view, !isFetchInProgress else { return }
+        guard !isFetchInProgress else { return }
         
         view.showLoader(true)
         isFetchInProgress = true
         
         interactor.popularMovies(page: page) { [unowned self] (popularMovies, error) in
-            view.showLoader(false)
+            self.view.showLoader(false)
             self.isFetchInProgress = false
             
             if let error = error {
@@ -113,8 +118,6 @@ extension DashboardPresenter {
     }
     
     private func updateViewState(dateRange: DateRange) {
-        guard let interactor = interactor, let view = view else { return }
-        
         var currentStringDates = [String]()
         for movieCell in totalMoviewCells {
             currentStringDates.append(movieCell.releaseDate)
@@ -144,7 +147,7 @@ extension DashboardPresenter {
             dateDataModel.append(element.releaseDate)
         }
         
-        if let filteredDates = interactor?.filterStringDates(dateDataModel, byDateRange: rangeDate) {
+        if let filteredDates = interactor.filterStringDates(dateDataModel, byDateRange: rangeDate) {
             for filteredDate in filteredDates {
                 let elementFiltered = totalMoviewCells.filter( { $0.releaseDate == filteredDate })
                 filteredMoviewCells.append(contentsOf: elementFiltered)
